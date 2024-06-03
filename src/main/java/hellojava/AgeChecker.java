@@ -10,8 +10,9 @@ public class AgeChecker {// do not need to say AgeChecker.Java since know class 
         if (age >= 18) {
             System.out.println("You are old enough");
         }
-        else {
-            System.out.println("You must be 18 years older to enter"); //tab it
+        else  {
+            int X = 18 - age;
+            System.out.println("You must be " + X + " years older to enter"); //tab it
         }
     }
 }

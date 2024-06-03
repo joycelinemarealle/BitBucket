@@ -22,7 +22,7 @@ public class Loops {
                 sum = sum + k;
 
             }//compare results
-            if (sum != formula) {
+            if (sum != formula) { //comparing the total sum after all numbers are calculated
                 System.out.println("Error: Formula does not match");
                 System.out.println("The sum is : " +sum);
                 System.out.println ("The formula value is : " + formula);

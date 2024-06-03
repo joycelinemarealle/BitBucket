@@ -14,8 +14,9 @@ public class AgeChecker {// do not need to say AgeChecker.Java since know class 
             int X = 18 - age;
             System.out.println("You must be " + X + " years older to enter"); //tab it
         }
-       // if ( age = "exit"){
-          //  break;
+       if ( age == "exit"){ //convert int to String for it to ready
+           break;
+       }
         }
     }
 

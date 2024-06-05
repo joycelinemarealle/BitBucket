@@ -1,13 +1,18 @@
-/* package hellojava;
-public class {
+ package hellojava;
+public class Factorial {
     public static void main(String[] args) {
-    //initialize variable
-        for (int counter = 4; counter > 1; counter++) {
+        //initialize variable
+        //for need higher and lower range
+        int value = 5;
+        int results = 1;
+        for (int counter = value; counter > 1; counter--) { //decrement so use --
+            results *=  counter;
         }
+        System.out.println(results + " The results of the factorial");
     }
 }
 /*
- */
+
 
 /* package hellojava;
 import java.util.Scanner;

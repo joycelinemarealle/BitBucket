@@ -5,7 +5,7 @@ public class Shop2 {
         //Sale sale defined in sale
         Sale1 sale = new Sale1 (" Tissue ", 3.45);
        //Sale  Sale2 = new Sale (" Juice ", 5.76);
-       Purchase purchase1 =  new Purchase (sale, 4);
+       Purchase1 purchase1 =  new Purchase1 (sale, 4);
         System.out.println(sale +"Sale ");
         //System.out.println(Sale2 +"Sale2");
         System.out.println(purchase1);
@@ -17,6 +17,6 @@ record Sale1 (String name , double price) {
 
 }
 //need to also use the same small name little sale in here too
-record Purchase ( Sale1 sale, int quantity){
+record Purchase1 ( Sale1 sale, int quantity){
 
 }

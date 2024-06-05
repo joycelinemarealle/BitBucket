@@ -3,6 +3,7 @@ package hellojava;
 import java.util.Scanner;
 
 public class MoreFuncs {
+    static  int loopNumber =1;
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
@@ -30,20 +31,24 @@ public class MoreFuncs {
         System.out.println(resultOfSub);
 
         System.out.println("\nStart of whileloop sum calculation");
-        int loopNumber ;
         while(loopNumber <= 100) {
             System.out.println("Get sum of what?");
-
             int number = scanner.nextInt();
 
+            int res = MoreFuncs.calculateSum(number);
+
+            System.out.println("Sum is " + res);
+            loopNumber++;
         }
-        static int calculatedSum(int max){
-            System.out.println("calculateSum loop number" + loopNumber);
-            int sum = 0;
-            for (int i =0; i<=max; i++);{
-                sum += i;
-            }
-            return sum;
+
+    }
+    //Static stays out of the main method but within in class
+    static int calculateSum(int max) {
+        System.out.println("calculateSum loop number" + loopNumber);
+        int sum = 0;
+        for (int i =0; i<= max; i++){
+            sum += i;
         }
+        return sum;
     }
 }

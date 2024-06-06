@@ -26,8 +26,8 @@ package hellojava;
 
          //calls old prices so need to update to call new price which is the calculatePrice
          //Check if discounted prices applied
-         double cost1 = purchase1.calculatedPrice() ;
-         double cost2 = purchase2.calculatedPrice();
+         double cost1 = purchase1.calculatedCost() ;
+         double cost2 = purchase2.calculatedCost();
          //need to call the functions that can calculate price and check if discount applies or not
 
          //print out the two costs
@@ -55,7 +55,8 @@ package hellojava;
 
      //calculated cost of purchased item defined in Purchase record
      // define as a double since decimal will be involved
-     public double calculatedPrice() {
+     //I could also just calculate price the not return price *quantity. Call this calculatedPrice. then call purchase1.calcuatedPrice()*purchase1* purchase1.quantity()
+     public double calculatedCost() {
          //new price depends on discount applied
          //price initialization as double
          //price comes from record Purchase which has record item that has name and price

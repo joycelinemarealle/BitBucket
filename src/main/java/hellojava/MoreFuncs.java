@@ -1,5 +1,5 @@
 package hellojava;
-
+//calculator driver
 import java.util.Scanner;
 
 public class MoreFuncs {
@@ -35,6 +35,8 @@ public class MoreFuncs {
             System.out.println("Get sum of what?");
             int number = scanner.nextInt();
 
+            //Refer to static by calling MoreFuncs.calculatesum(number.
+            // callingmethodlocation.nameoffunction(variable used in the calling method not in static)
             int res = MoreFuncs.calculateSum(number);
 
             System.out.println("Sum is " + res);

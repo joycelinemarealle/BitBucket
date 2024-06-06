@@ -46,6 +46,7 @@ public class MoreFuncs {
     }
     //Static stays out of the main method but within in class
     static int calculateSum(int max) {
+        // need to define int max since it is used in for loop as a cap
         System.out.println("calculateSum loop number" + loopNumber);
         int sum = 0;
         for (int i =0; i<= max; i++){

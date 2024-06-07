@@ -1,5 +1,6 @@
 package calculatorgame;
 
+import java.util.*;
 import java.util.Scanner;
 
 public class CalculatorGameMthOp2 {
@@ -16,8 +17,9 @@ public class CalculatorGameMthOp2 {
             System.out.println("Choose which Calculator Game you want to play");
             System.out.println("Type 1 for  Addition Quiz");
             System.out.println(" Type 2 for Modulo Quiz");
-            System.out.println(" Type 3 for Multiplication Quiz");
-            System.out.println(" Type 4 for Exit");
+            System.out.println(" Type 3 for Power Quiz");
+            System.out.println(" Type 4 for Boolean Quiz");
+            System.out.println(" Type 5 for exit");
             System.out.println(" ");
 
             //user game selection
@@ -34,19 +36,22 @@ public class CalculatorGameMthOp2 {
                 HighScore_c score2 = new HighScore_c(player1, scoreOfModuloQuiz);
                 System.out.println("The moduloQuiz is " + scoreOfModuloQuiz);
 
-            }
-            else if (userchoice ==3){
-                int scoreOfPowerQuiz = powerQuiz(5) ;
+            } else if (userchoice == 3) {
+                int scoreOfPowerQuiz = powerQuiz(5);
                 HighScore_c score1 = new HighScore_c(player1, scoreOfPowerQuiz);
-                System.out.println("The Addition Quiz Score is " + scoreOfPowerQuiz);
-            }
-            else {
+                System.out.println("The Power Quiz Score is " + scoreOfPowerQuiz);
+
+            } else if (userchoice == 4) {
+                int scoreOfBooleanQuiz = booleanQuiz(5);
+                HighScore_c score1 = new HighScore_c(player1, scoreOfBooleanQuiz);
+                System.out.println("The Boolean Quiz Score is " + scoreOfBooleanQuiz);
+            } else {
                 exit = true;
                 System.out.println("Exiting Calculator Game. Goodbye");
                 //exit game
             }
         }
-        scanner.close(); //close after exit
+        //scanner.close(); //close after exit
     }
 
     //create a static method that calls for name and age
@@ -148,7 +153,7 @@ public class CalculatorGameMthOp2 {
 
     //powerQuestion Static method
     public static boolean powerQuestion(int a, int b) {
-        int power = (int) Math.pow(a,b); //convert from double to integer
+        int power = (int) Math.pow(a, b); //convert from double to integer
 
         //ask user to add a  and b
         Scanner scanner = new Scanner(System.in);
@@ -171,13 +176,10 @@ public class CalculatorGameMthOp2 {
     public static int powerQuiz(int length) {
         int score = 0;
         for (int n = 0; n < length; n++) {
-
             int a = (int) (Math.random() * 100);
             int b = (int) (Math.random() * 100);
-
             //calling main method addQuestion(2,2) that calls static function
-            boolean powerResultOfUser = powerQuestion(a, b); //???? why cant i pass values here
-
+            boolean powerResultOfUser = powerQuestion(a, b);
             //to count amount of trues
             if (powerResultOfUser) { //check if true and add score. Userinput == true
                 score += 1;
@@ -186,10 +188,63 @@ public class CalculatorGameMthOp2 {
         return score;//return counts of true
 
     }
+
+    //boolean static method
+    public static boolean booleanQuestion(boolean a, boolean b) {
+        boolean formula = a && b; //test for AND boolean logic
+
+        //ask user to input
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Your answer (true/false)" + a + " and " + b);
+
+        //validate user result if true or false typed. Prompt to type two options
+        /*prompt user for true or false
+         * if user string input true or false
+         * then convert string to boolean
+         * if not send message user to type true or false */
+// intialize variable
+        boolean  booleanResultOfUserBol ;
+        do {
+            String booleanResultOfUserStr = scanner.nextLine();
+            if (booleanResultOfUserStr.equalsIgnoreCase("true") || booleanResultOfUserStr.equalsIgnoreCase("false")) { //if typed true or false conver to boolean
+                 booleanResultOfUserBol = Boolean.parseBoolean(booleanResultOfUserStr); //convert from String
+                break; //Exit the loop if the input is valid
+            } else {
+                System.out.println("Answer not recognized.Type true or false");
+            }
+        }while (true) ;// Infinite loop until a valid input is provided
+
+        //test if user is correct
+        if (booleanResultOfUserBol == formula) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+        //booleanQuiz Score Static method
+        public static int booleanQuiz ( int length){
+            int score = 0;
+
+            for (int n = 0; n < length; n++) {
+                Random random = new Random();
+                boolean a = random.nextBoolean();
+                boolean b = random.nextBoolean();
+
+                //refer to booleanQuestion static method
+                boolean booleanResultOfUserBol = booleanQuestion(a, b);
+
+                if (booleanResultOfUserBol) { //is correct
+                    score += 1;
+                }
+            }
+            return score;
+        }
+    }
+
     //record is a classes so put outside class,es outside
     record Player_c(String name, int age) {
     }
 
     record HighScore_c(Player_c player, int score) {
     }
-}

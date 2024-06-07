@@ -3,9 +3,12 @@ package calculatorgame;
 import java.util.*;
 import java.util.Scanner;
 
-public class CalculatorGameMthOp2 {
-    public static void main(String[] args) {
+public class CalculatorGameFinal {
+    static int index = 0; //initialize outside.need static since outside main
+   static  HighScore_c[] myScoreArray = new HighScore_c[5];//type of array is HighScore_c tracking all records
+//put outside so can refer to it using any static method
 
+    public static void main(String[] args) {
         //Call the record player
         Player_c player1 = createPlayer();
         System.out.println("/n");
@@ -20,6 +23,7 @@ public class CalculatorGameMthOp2 {
             System.out.println(" Type 3 for Power Quiz");
             System.out.println(" Type 4 for Boolean Quiz");
             System.out.println(" Type 5 for exit");
+            System.out.println("Type 6 to print array of Player and scores");
             System.out.println(" ");
 
             //user game selection
@@ -30,22 +34,40 @@ public class CalculatorGameMthOp2 {
                 int scoreOfAddQuiz = addQuiz(5);
                 HighScore_c score1 = new HighScore_c(player1, scoreOfAddQuiz);
                 System.out.println("The Addition Quiz Score is " + scoreOfAddQuiz);
+                myScoreArray[index] = score1; //track index of array and add record
+                index+=1;
+                //??if lenght <5 can do index+1
+
+                //??if > length 5 end of array need replace lowest
+
+                System.out.println(Arrays.toString(myScoreArray));
 
             } else if (userchoice == 2) {
                 int scoreOfModuloQuiz = moduloQuiz(5);
-                HighScore_c score2 = new HighScore_c(player1, scoreOfModuloQuiz);
+                HighScore_c score1 = new HighScore_c(player1, scoreOfModuloQuiz);
                 System.out.println("The moduloQuiz is " + scoreOfModuloQuiz);
+                myScoreArray[index] = score1;
+                index+=1;
+                System.out.println(Arrays.toString(myScoreArray));
 
             } else if (userchoice == 3) {
                 int scoreOfPowerQuiz = powerQuiz(5);
                 HighScore_c score1 = new HighScore_c(player1, scoreOfPowerQuiz);
                 System.out.println("The Power Quiz Score is " + scoreOfPowerQuiz);
-
+                myScoreArray[index] = score1;
+                index+=1;
+                System.out.println(Arrays.toString(myScoreArray));
             } else if (userchoice == 4) {
                 int scoreOfBooleanQuiz = booleanQuiz(5);
                 HighScore_c score1 = new HighScore_c(player1, scoreOfBooleanQuiz);
                 System.out.println("The Boolean Quiz Score is " + scoreOfBooleanQuiz);
-            } else {
+                myScoreArray[index] = score1;
+                index+=1;
+                System.out.println(Arrays.toString(myScoreArray));
+            } else if ( userchoice==6){
+                System.out.println(Arrays.toString(myScoreArray));
+            }
+            else {
                 exit = true;
                 System.out.println("Exiting Calculator Game. Goodbye");
                 //exit game
@@ -53,6 +75,13 @@ public class CalculatorGameMthOp2 {
         }
         //scanner.close(); //close after exit
     }
+
+    /*create an array length 5
+    * tracks quiz array stores records
+    * option in menu*/
+    //type array
+
+    // add entire record in array
 
     //create a static method that calls for name and age
     public static Player_c createPlayer() {

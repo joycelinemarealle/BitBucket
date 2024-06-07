@@ -7,7 +7,7 @@ public class CalculatorGameFinal {
     static int index = 0; //initialize outside.need static since outside main
    static  HighScore_c[] myScoreArray = new HighScore_c[5];//type of array is HighScore_c tracking all records
 //put outside so can refer to it using any static method
-
+//
     public static void main(String[] args) {
         //Call the record player
         Player_c player1 = createPlayer();

@@ -10,6 +10,8 @@ public class CalculatorGame {
         System.out.println(score1);
         System.out.println("\nStart of Extension");
 
+        int a = (int) (Math.random()*100) ; //0 to 0.99
+        System.out.println(a);
     }
 }
 

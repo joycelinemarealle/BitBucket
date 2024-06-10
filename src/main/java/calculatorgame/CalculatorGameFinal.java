@@ -4,20 +4,20 @@ import java.util.*;
 import java.util.Scanner;
 
 public class CalculatorGameFinal {
-    static int index = 0; //initialize outside.need static since outside main
-   static  HighScore_c[] myScoreArray = new HighScore_c[5];//type of array is HighScore_c tracking all records
-//put outside so can refer to it using any static method
+    static int index = 0; //Global can call from any method. initialize outside.need static since outside main
+    static  HighScore_c[] myScoreArray = new HighScore_c[5];//type of array is HighScore_c tracking all records
+    //put outside so can refer to it using any static method
 //
     public static void main(String[] args) {
         //Call the record player
         Player_c player1 = createPlayer();
-        System.out.println("/n");
+        System.out.println(" ");
 
         //Main loop for the menu
         Scanner scanner = new Scanner(System.in); //leave it outside the method
         boolean exit = false;
         while (!exit) {
-            System.out.println("Choose which Calculator Game you want to play");
+            System.out.println("\nChoose which Calculator Game you want to play");
             System.out.println("Type 1 for  Addition Quiz");
             System.out.println(" Type 2 for Modulo Quiz");
             System.out.println(" Type 3 for Power Quiz");
@@ -29,16 +29,27 @@ public class CalculatorGameFinal {
             //user game selection
             int userchoice = (scanner.nextInt());
 
+            // Inform player of current best "score to beat"
+            HighScore_c bestScore = findHighestScore();
+            if  (bestScore != null) {
+                System.out.println ("\nCurrent best score to beat is  " + bestScore.score() + "  by  " + bestScore.player().name());
+
+            }
+            else {
+                System.out.println("\nNo Scores available yet ");
+            }
+
+
             //return game user selected
             if (userchoice == 1) {
                 int scoreOfAddQuiz = addQuiz(5);
                 HighScore_c score1 = new HighScore_c(player1, scoreOfAddQuiz);
                 System.out.println("The Addition Quiz Score is " + scoreOfAddQuiz);
-                myScoreArray[index] = score1; //track index of array and add record
+                myScoreArray[index] = score1; //track index of array and updates record after each quiz is completed
                 index+=1;
                 //??if lenght <5 can do index+1
 
-                //??if > length 5 end of array need replace lowest
+                //??if > length 5 end of array need replace lowest score
 
                 System.out.println(Arrays.toString(myScoreArray));
 
@@ -77,8 +88,8 @@ public class CalculatorGameFinal {
     }
 
     /*create an array length 5
-    * tracks quiz array stores records
-    * option in menu*/
+     * tracks quiz array stores records
+     * option in menu*/
     //type array
 
     // add entire record in array
@@ -145,7 +156,7 @@ public class CalculatorGameFinal {
         int modulo = a % b;
         //ask user to add a  and b
         Scanner scanner = new Scanner(System.in);
-        System.out.println(" Calculate remainder of dividing " + a + " , " + b);
+        System.out.println(" \nCalculate remainder of dividing " + a + " , " + b);
 
         //capture useranswer
         int userAnswer = scanner.nextInt();
@@ -186,7 +197,7 @@ public class CalculatorGameFinal {
 
         //ask user to add a  and b
         Scanner scanner = new Scanner(System.in);
-        System.out.println(" Calculate the power of " + a + " to " + b);
+        System.out.println(" \nCalculate the power of " + a + " to " + b);
 
         //capture useranswer
         int userAnswer = scanner.nextInt();
@@ -224,7 +235,7 @@ public class CalculatorGameFinal {
 
         //ask user to input
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Your answer (true/false)" + a + " and " + b);
+        System.out.println("\nYour answer (true/false) " + a + " and " + b);
 
         //validate user result if true or false typed. Prompt to type two options
         /*prompt user for true or false
@@ -236,7 +247,7 @@ public class CalculatorGameFinal {
         do {
             String booleanResultOfUserStr = scanner.nextLine();
             if (booleanResultOfUserStr.equalsIgnoreCase("true") || booleanResultOfUserStr.equalsIgnoreCase("false")) { //if typed true or false conver to boolean
-                 booleanResultOfUserBol = Boolean.parseBoolean(booleanResultOfUserStr); //convert from String
+                booleanResultOfUserBol = Boolean.parseBoolean(booleanResultOfUserStr); //convert from String
                 break; //Exit the loop if the input is valid
             } else {
                 System.out.println("Answer not recognized.Type true or false");
@@ -251,29 +262,53 @@ public class CalculatorGameFinal {
         }
 
     }
-        //booleanQuiz Score Static method
-        public static int booleanQuiz ( int length){
-            int score = 0;
+    //booleanQuiz Score Static method
+    public static int booleanQuiz ( int length){
+        int score = 0;
 
-            for (int n = 0; n < length; n++) {
-                Random random = new Random();
-                boolean a = random.nextBoolean();
-                boolean b = random.nextBoolean();
+        for (int n = 0; n < length; n++) {
+            Random random = new Random();
+            boolean a = random.nextBoolean();
+            boolean b = random.nextBoolean();
 
-                //refer to booleanQuestion static method
-                boolean booleanResultOfUserBol = booleanQuestion(a, b);
+            //refer to booleanQuestion static method
+            boolean booleanResultOfUserBol = booleanQuestion(a, b);
 
-                if (booleanResultOfUserBol) { //is correct
-                    score += 1;
-                }
+            if (booleanResultOfUserBol) { //is correct
+                score += 1;
             }
-            return score;
         }
+        return score;
     }
 
-    //record is a classes so put outside class,es outside
-    record Player_c(String name, int age) {
-    }
+    //Static method that finds highest score in the HighScores list and prints it
+    //using a For - each Loop
+    public static HighScore_c findHighestScore() {
 
-    record HighScore_c(Player_c player, int score) {
+        //Initialize variabel to keep track highest score
+        HighScore_c highestScore = null; //initialize to zero the record
+
+        for (HighScore_c score : myScoreArray) { //stores elements of type HighScore_c every element in array myScoreArray [for (Type variable : collection) {]
+            //to track maximum. record need not to be null and same time score.score() > than highestScore.score() this tracks the score value in record
+
+            if (score != null ) {  // Check if the current score is not null to avoid error if no score is in array
+
+                if (highestScore == null || score.score( ) > highestScore.score()){ // Check if the current score is not null and if it's higher than the highest score found so far
+
+                    highestScore = score; //update record to match temporary record called score as you go through the for each loop
+                }
+
+            }
+            //return highestScore
+
+        }
+        return highestScore;
     }
+}
+
+//record is a classes so put outside class,es outside
+record Player_c(String name, int age) {
+}
+
+record HighScore_c(Player_c player, int score) {
+}

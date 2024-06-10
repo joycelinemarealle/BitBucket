@@ -2,8 +2,8 @@ Project
 FR Over 18s only!
 1. Ask user for name and date of birth
 2. Ask a string or separate month, year
-3. Validate date input
-4. Validate age over 18 yr
+3. Validate date input //??how to comparing to june 10th 2024
+4. Validate age over 18 yr  //??testing to only capture 1-49 number how
 5. Assume date today 6/10/2024 used to find age of user
 
 FR2 Pick numbers

@@ -1,0 +1,29 @@
+Project
+FR Over 18s only!
+1. Ask user for name and date of birth
+2. Ask a string or separate month, year
+3. Validate date input
+4. Validate age over 18 yr
+5. Assume date today 6/10/2024 used to find age of user
+
+FR2 Pick numbers
+1.User to pick 6 no from 1-49
+2. No repeats of number
+3. Put in array
+
+FR3. LuckyDip
+1. picking numbers
+2. check if duplicates if there need to choose again
+3.
+
+Fr4 view ticket
+
+FR5: play game
+1. machine generate random 6 numbers
+2. cant pick duplicate number
+
+FR6 results
+1. user test results
+
+FR7
+1. Rest and play

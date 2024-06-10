@@ -1,11 +1,11 @@
-package hellojava;
+package ProgrammingFundamentalsProject;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util. *;
 
-public class ProgrammingFundamentalsProject {
+public class LotterySystemProject {
 
     public static void main(String[] args) {
 
@@ -58,9 +58,6 @@ public class ProgrammingFundamentalsProject {
                 System.out.println("Invalid Date. Enter a valid date");
                 continue; //skip to the top to ask user for birthdate
             }
-
-
-
         }
 
     }

@@ -20,7 +20,7 @@ public class LotterySystemProject {
            Scanner scanner = new Scanner(System.in);
 
            // Ask user for name
-           System.out.println("Enter your name");
+           System.out.println("/nStart of Lottery. Enter your name");
            String name = scanner.nextLine();
 
            //Call static method that Validate age

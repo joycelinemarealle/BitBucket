@@ -72,7 +72,6 @@ public class LotterySystemProject {
             try {
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy"); //object for date formatter
                 birthDate = LocalDate.parse(birthDateStr, formatter); //converts user string to date format, if converted then date valid
-
                 dateIsValid = true; //date format is valid so now can calculate age
 
                 //If date valid now Calculate age
@@ -87,7 +86,7 @@ public class LotterySystemProject {
 
                 } else if (years > 120 ){
                     System.out.println("\nYour age is " + years + " years. Invalid Age");
-                    dateIsValid = false; //set dateIsValid to false to ask again birthday
+                    dateIsValid = false; // cant be alive. set dateIsValid to false to ask again birthday !dataIsValid
                 }
                 else {
                     System.out.println("\nYou need to be 18 years old to participate in the Lottery System. ");

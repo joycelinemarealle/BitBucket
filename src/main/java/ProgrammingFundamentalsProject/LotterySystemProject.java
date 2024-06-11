@@ -23,7 +23,7 @@ public class LotterySystemProject {
            System.out.println("Enter your name");
            String name = scanner.nextLine();
 
-           //Validate age
+           //Call static method that Validate age
            dateValidation();
            //call static method for playerTicket number after player  choice 1 / their own or 2/computer random number generator
            int [] resultsOfPlayerTicketArray = playerTicketArray(); //save the returned array
@@ -70,7 +70,7 @@ public class LotterySystemProject {
                 dateIsValid = true; //date format is valid so now can calculate age
 
                 //If date valid now Calculate age
-                LocalDate today = LocalDate.now(); //?? how to check date is June 10th 2024
+                LocalDate today = LocalDate.of(2024,06,10); // check date is June 10th 2024
                 Period age = Period.between(birthDate, today); //calculate time difference (yrs, month,days ) between birthdate date now
                 int years = age.getYears();
 

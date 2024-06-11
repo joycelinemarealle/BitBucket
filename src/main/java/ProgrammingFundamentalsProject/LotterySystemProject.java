@@ -11,7 +11,7 @@ public class LotterySystemProject {
     static int[] playerRandomArray = new int[6];//create new array of type int
     static int[] computerRandomArray = new int[6];
     static int[] lotteryNumbersArray = new int[6];
-    static boolean playGame ;
+    static boolean playGame = true; //assume true meaning want to play again
 
     public static void main(String[] args) {
 
@@ -46,7 +46,13 @@ public class LotterySystemProject {
            System.out.println("\nWould you like to play the Lottery again? Answer Yes or No");
            String playGameAgainChoice = scanner.nextLine();
            if (playGameAgainChoice.equalsIgnoreCase ("No")) { //define as String which is reference so use equals a.equals('b')
+               playGame = false;
+               System.out.println("\nExiting Game. Goodbye");
                break; //break from game
+           } else {
+               playerRandomArray = new int[6]; //need to reset to make sure the array is empty
+               computerRandomArray = new int[6];
+                lotteryNumbersArray = new int[6];
            }
        } while (playGame); //always run the game until user says no - they do not want play again
 
@@ -89,7 +95,7 @@ public class LotterySystemProject {
                 }
                 //if date not valid then print error and prompt user to enter valid date
             } catch (DateTimeParseException e) {
-                System.out.println("Invalid Date. Enter a valid date");
+                System.out.println("\nInvalid Date. Enter a valid date");
                 continue; //skip to the top to ask user for birthdate
             }
         }
@@ -125,7 +131,7 @@ public class LotterySystemProject {
         //Capture player 6 random numbers between 1-49 //repeat 6 times so use for loop. Number of times length of array
 
         for (int i = 0; i < playerRandomArray.length; i++) {
-            System.out.println("Enter a number:");
+            System.out.println("\nEnter a number:");
             int numberChosenByPlayer = 0; //initialize variable
             boolean newNumber; //intialize variable
             do {
@@ -133,7 +139,7 @@ public class LotterySystemProject {
                 numberChosenByPlayer = scanner.nextInt(); //in static method allow to ask 6 times
                 for (int j = 0; j < playerRandomArray.length; j++) {
                     if (playerRandomArray[j] == numberChosenByPlayer) { // it's in there
-                        System.out.println("The number is already chosen. Choose another number");
+                        System.out.println("\nThe number is already chosen. Choose another number");
                         newNumber = false; // set the condition to false because they didn't provide a new number
                         break;
                     }

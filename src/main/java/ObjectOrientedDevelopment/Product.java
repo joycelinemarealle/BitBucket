@@ -7,7 +7,7 @@ public class Product { //defined as private. These are data field
 // constructor always matches the class no void
     //define constructor that takes in data field. This is a method that holds data field and can call it
     public Product(String name, double price, int  quantity) {
-        this.name = name; //this refers to data field above
+        this.name = name; //this.name refers to data field above and name is from constructor
         this.price = price;
         this.quantity = quantity;
     }

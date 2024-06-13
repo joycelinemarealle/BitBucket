@@ -48,8 +48,12 @@ public class TradeTest {
     }
 }
 
-/*What this does is that it updates the balance of indiividual trading
-* So, from trader.addmetho*/
+/*What this does is that it updates the balance of individual trading
+* So, from trader.addmethod() pass the Trade object trade1, trade2 or trade3
+* then it goes to my trade class sees the parameters defined
+* The find the addTrade method in Trader ( trader.addTrade) then do what the method has to do is calculated value and add exisiting
+* get.value from Account class
+* then in Trader class what is String to String will be printed out . the name and print trader.toString*/
 //new trade
 // call add trade method
 // let me print out need it in trader class so when i call add Trade it prints out

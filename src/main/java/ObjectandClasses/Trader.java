@@ -7,14 +7,12 @@ public class Trader { //no need of main
     //add constructor
     public Trader(String name) { //only name since initial account is zero
         this.name = name;
-        this.account = new Account(0); //since objecct cant say = 0
+        this.account = new Account(0); //since objecct cant say = 0 so need to new Account(0) meaning value is zero since takes in value
     }
 
      public void addTrade(Trade trade) { //need to pass the array trade of type Trade
-
         double existingValue = account.getValue();  //existing value of account
-        //calculate value by calling trade classes. we use getPrice(
-        double totalValue = existingValue + (trade.getPrice() * trade.getQuantity()); //adding to previous class
+        double totalValue = existingValue + (trade.getPrice() * trade.getQuantity()); //trade.getPrice() * trade.getQuantity() adding to previous class
         account.setValue(totalValue); //pass the value of totalValue into the setter
 
          //account.value += trade.getPrice() * trade.getQuantity();

@@ -22,6 +22,17 @@ public class Product { //defined as private. These are data field
     public int getQuantity(){
         return this.quantity;
     }
+
+    //new method for value
+    public double value(){ //not taking in paremeter
+        return this.price * this.quantity;
+    }
+
+
+    //new method setter
+    public void setPrice (double price){
+        this.price = price;
+    }
     @Override
     public String toString(){
         return " [name " + name + "price=" + price + "quantity=" + quantity +"]";

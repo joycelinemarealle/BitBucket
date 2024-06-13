@@ -20,7 +20,7 @@ public class App {
         //Call static method that prints out array
         createProductArray(productArray);
 
-        //Call static method that changes values
+        //Call static method that changes values and print array
         System.out.println("-----------------------------");
         changePrice(product1,20);
         createProductArray(productArray);
@@ -41,11 +41,20 @@ public class App {
     }
 
     //static method that changes price
-    public static void changePrice(Product product, double price){
-        product.setPrice(price);
+    public static void changePrice(Product product, double price){ //passing through every product, price
+        product.setPrice(price); //every product. method that changes price, then pass through price
     }
 }
 
+/* 1 create a method in constructor file that calculates the value takes price * quantity
+2 use this method in App class to calculate total value. array[i].value(). Value is a method that does the calculation
+3 create method in my constructor file that can access price since data field is private
+private data field useful since allows for more control in change of value
+4 create a method in my App class that changes prices. It takes in product type Product, price type double. product.setPrice(price). define parameter since used them.
+product. method to get price
+* 5 for record need to define value calculation cant use a method for it
+for recprd cant change??
+*/
 
 //Create an array to capture object
 //but these objects are of different types?? How do create an array. Answer Record is they type and had different data typs int, double, String

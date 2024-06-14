@@ -12,6 +12,11 @@ public class TradeTest {
         changePrice(trade1, 20);
         System.out.println("\nThe new price of trade1 is now " + trade1.getPrice());
 
+
+        //create new object of trader
+        Trader trader = new Trader ("Joe");//takes  String name
+         trader.addTrade(trade1); //class.method
+        System.out.println(trader.toString()); //prints out data field in trader
     }
 
 //static method to get price

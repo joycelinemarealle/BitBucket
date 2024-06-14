@@ -20,6 +20,8 @@ public class Account { //define the data field  as private. the value is price*q
     public void setValue(double totalValue ) { //name has to match as that in the user interface
         this.value = totalValue; //total
     }
+
+
 }
 
 

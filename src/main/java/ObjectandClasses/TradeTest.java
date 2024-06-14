@@ -14,15 +14,18 @@ public class TradeTest {
         tradeArray[2] = trade3;
 
         //Call static method to lists elements in array
-//        createTradeArray( tradeArray); //need to also pass an array do need to define since already defined
+        //createTradeArray( tradeArray); //need to also pass an array do need to define since already defined
 
         //Call static method that changes prices
+        System.out.println("\nOriginal trades with no price change of trade1");
         changePrice(trade1,20);
         System.out.println();
+//test to see if price changed. can use the getPrice
+        System.out.println("\nThe new price of trade1 is " + trade1.getPrice());
 
         //test to see if price changed
-        System.out.println("\nChange price of T1 to $20");
-//        createTradeArray(tradeArray);
+       // System.out.println("\nChange price of T1 to $20");
+        //createTradeArray(tradeArray);
 
         //testing the trader arithmetic
         //call the add trade that takes in the Trade trade
@@ -38,8 +41,10 @@ public class TradeTest {
     }
 
     //Create an array to take in all Trade objects
-    public static void createTradeArray ( Trade trade){ //passing through tradearray of type Trade
-
+    public static void createTradeArray ( Trade [] trade) { //passing through tradearray of type Trade
+        for (int i = 0; i < trade.length; i++){
+            System.out.println(trade[i]);
+        }
     }
 
     //Call static method to change price

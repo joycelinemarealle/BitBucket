@@ -35,5 +35,5 @@ public class BankAccount {
     //toString method
     public String toString(){
         return "The bank account number of " + accountNumber + "has a balance of " + balance;
-    }
+    } //if at file no need to say getAccountNumber . No need to use this.accountNumber or when not passing parameter also called accountNumber
 }

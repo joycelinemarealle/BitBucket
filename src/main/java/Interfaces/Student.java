@@ -1,4 +1,4 @@
-package Interfaces;
+package Interfaces; //comment
 
 public class Student implements Comparable<Student> { //has Comparable method insert the class student. Hit alt + enter to implement mehethods
     //data attributes

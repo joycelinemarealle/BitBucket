@@ -42,8 +42,9 @@ public class BankAccount implements DrawableInterface{
 
     @Override
     public void draw(Graphics g) {
-        g.drawString("Balance: " + balance , 100, 100); //because x and y not defined as attributes like shapes so put in number
-        g.drawString("Account number " + accountNumber, 200,150 );
+        String msg = "Balance: " + balance + " Account number: " + accountNumber;
+        g.drawString(msg, 100,100); //because x and y not defined as attributes like shapes so put in number
+
     }
 
     //draw method

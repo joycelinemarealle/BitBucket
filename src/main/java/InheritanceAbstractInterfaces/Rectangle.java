@@ -1,5 +1,7 @@
 package InheritanceAbstractInterfaces;
 
+import java.awt.*;
+
 public class Rectangle extends Shape {
     double width;
     double height;
@@ -49,4 +51,11 @@ public class Rectangle extends Shape {
 public String toString () {
 return "The rectangle of width cm " + width + "and height cm " + height + "has the circumference in cm of " + circumference()+ "and area of in cm2" + area();
 }
+
+    @Override
+    public void draw(Graphics g) { //
+        g.setColor(getColor());//string "Red" to object so color is seen
+        g.fillRect(getX(),getY(), (int)width,  (int)height); //cast to get it into int
+    }
+
 }

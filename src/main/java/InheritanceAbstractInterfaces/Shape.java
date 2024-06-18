@@ -1,22 +1,24 @@
 package InheritanceAbstractInterfaces;
 
-public abstract class Shape {
+import java.awt.*;
+
+public abstract class Shape implements DrawableInterface { //add implement here since circle and rectangles will get access to it
 
     //data fields
     private int x;
     private int y;
-    private String color;
+    private Color color; //can have type Color instead of String than having to decode
 
 
     //add constructor 1
     public Shape(int x, int y) {
         this.x = x;
         this.y = y;
-        this.color = "Red"; //specify initial color
+        this.color = Color.BLUE; //specify initial color
     }
 
     //add constructor 2
-    public Shape(int x, int y, String color) {
+    public Shape(int x, int y, Color color) {
 
         this.x = x;
         this.y = y;
@@ -32,7 +34,7 @@ public abstract class Shape {
         return this.y;
     }
 
-    public String getColor() {
+    public Color getColor() {
         return this.color;
     }
 
@@ -45,7 +47,7 @@ public abstract class Shape {
         this.y = y;
     }
 
-    public void setColor(String color) {
+    public void setColor(Color color) {
         this.color = color;
     }
 
@@ -59,4 +61,8 @@ public abstract class Shape {
     public String toString() {
         return " x is " + x + " y is " + y +" color is " + color;
     }
+
+//    //override methods found in interface
+//    @Override
+//   public  abstract void draw(Graphics g);
 }

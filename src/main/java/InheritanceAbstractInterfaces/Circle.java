@@ -1,5 +1,7 @@
 package InheritanceAbstractInterfaces;
 
+import java.awt.*;
+
 public class Circle extends Shape {
 
     private double radius;
@@ -39,5 +41,12 @@ public class Circle extends Shape {
     @Override
     public String toString (){
         return "\nA circle of radius cm " + radius + "has a circumference of " + circumference() + " and an area of " + area();
+    }
+
+    @Override
+    public void draw(Graphics g) {
+        g.setColor(getColor());
+        g.drawOval(getX(),getY(),(int)radius, (int)radius);
+
     }
 }

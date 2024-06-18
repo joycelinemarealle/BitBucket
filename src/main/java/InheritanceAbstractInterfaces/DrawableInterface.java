@@ -1,4 +1,8 @@
 package InheritanceAbstractInterfaces;
-interface Drawable
-public class DrawableInterface {
+
+import java.awt.*;
+
+public interface DrawableInterface{
+    void draw(Graphics g);
 }
+

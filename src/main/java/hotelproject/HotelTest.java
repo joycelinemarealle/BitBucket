@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class HotelTest {  //testing comment
+public class HotelTest {  //testing comment //bacon
     public static void main(String[] args) {
 
     //booking Menu

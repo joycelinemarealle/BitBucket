@@ -2,13 +2,12 @@ package hotelproject;
 
 public class Customer {
     private String name;
-    private String emailAddress;
-    private int age;
+    //private int id ;
 
-    public Customer(String name, String emailAddress, int age) {
+
+    public Customer(String name) {
         this.name = name;
-        this.emailAddress = emailAddress;
-        this.age = age;
+        //this.id = id;
     }
 
     public String getName() {
@@ -19,28 +18,10 @@ public class Customer {
         this.name = name;
     }
 
-    public String getEmailAddress() {
-        return emailAddress;
-    }
-
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
     @Override
     public String toString() {
         return "Customer{" +
                 "name='" + name + '\'' +
-                ", emailAddress='" + emailAddress + '\'' +
-                ", age=" + age +
                 '}';
     }
 }

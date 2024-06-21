@@ -51,4 +51,13 @@ public class Hotel {
         }
         return null;
     }
+
+    @Override
+    public String toString() {
+        return "Hotel{" +
+                "bookingList=" + bookingList +
+                ", customerList=" + customerList +
+                ", roomList=" + roomList +
+                '}';
+    }
 }

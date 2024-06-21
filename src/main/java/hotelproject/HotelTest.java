@@ -67,24 +67,25 @@ public class HotelTest {  //testing comment //bacon
 
     }
 
-    public static void menuHotel1(Hotel hotel){
+    public static void menuHotel1(Hotel hotel) {
         System.out.println("type 1 to start booking");
         Scanner scanner = new Scanner(System.in);
         int userInput = scanner.nextInt();
 
         //if check
-        if (userInput ==1){
+        if (userInput == 1) {
             System.out.println("What type of room would you like to book \n" +
                     "Double Standard, Deluxe Double, Junior Suite, Grand Suite");
+            scanner.nextInt();
             String roomTypeInput = scanner.nextLine();
-            if(hotel.isRoomAvailable(roomTypeInput)) {
+            if (hotel.isRoomAvailable(roomTypeInput)) {
                 Room room = hotel.findRoomByType(roomTypeInput);
                 scanner.nextLine();
                 System.out.println("What is your guest first and last name");
                 String guestNameInput = scanner.nextLine();
 
                 System.out.println("What is the checkin Date yyyy-MM-dd");
-                 String checkInDateInput = scanner.nextLine();
+                String checkInDateInput = scanner.nextLine();
 
                 scanner.nextInt();
 
@@ -92,25 +93,27 @@ public class HotelTest {  //testing comment //bacon
                 String checkOutDateInput = scanner.nextLine();
 
                 // Create a customer
+                Customer customer1 = new Customer(guestNameInput);
+
                 // Add Customer to Hotel customer list
+                hotel.addCustomer(customer1);
+
                 // set room attribute isOccupied to true
+                room.setOccupied(true);
+
                 // Create a booking!
-
-
+                System.out.println(hotel.toString());
 
 
                 //add booking id
-            //
+                //
 
 
+            }
         }
+
+
     }
-
-
-
-
-
-
 }
 //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 

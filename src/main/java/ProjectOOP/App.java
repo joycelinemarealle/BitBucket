@@ -6,37 +6,44 @@ public class App {
     public static void main(String[] args) {
 
         //Call Menu
-        menuOption();
+      Hotel hotel = new Hotel ("Luxury hotel"); //initialize the hotel her to use its objects in methods in menu
+        menuOption(hotel); //pass hotel instance to menu option metho
 
     }
 
     //static method for menu
-    public static void menuOption(){
+    public static void menuOption(Hotel hotel){ //pass hotel so no need to instanciate hotel again
         //Menu option
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to the Luxury hotel management System.What would you like to do?\n" +
                 "Type 1 for adding a new room" +
                 "\nType 2 for booking" +
-                "\nType 3 ---");
+                "\nType 3 for checking in a customer" +
+                "\nType 4 for checking out a customer");
 
         int menuOptionInput = scanner.nextInt();
 
         //using switch for menu
         switch (menuOptionInput){
             case 1:
-                addRoom();
+                addRoom(hotel); //pass hotel instance
                 break;
 
             case 2:
-                makeBooking();
+                makeBooking(hotel);
                 break;
+
+            case 3:
+                checkInCustomer(hotel);
+                break;
+            case 4: checkOutCustomer(hotel);
+                    break;
         }
 
     }
     //static method to add rooms
-
-    public static void addRoom(){
-        Hotel hotel = new Hotel("Luxury Hotel"); //define objects to use methods in hotel class
+    public static void addRoom(Hotel hotel){
+        //define objects to use methods in hotel class
 
         //Four types of hotel rooms
         RoomType roomType1 = new RoomType(150, "Double Standard", 2);
@@ -63,7 +70,7 @@ public class App {
 
     }
     //public static method for booking
-    public static void makeBooking() {
+    public static void makeBooking(Hotel hotel) {
 
         Scanner scanner = new Scanner(System.in);
         //add type of room
@@ -73,12 +80,10 @@ public class App {
                 "Deluxe Double\n" +
                 "Junior Suite\n" +
                 "Grand Suite");
-        scanner.nextLine();
         String roomTypeInput = scanner.nextLine();
         scanner.nextLine();
 
         //check if room is in system
-        Hotel hotel = new Hotel("Luxury Hotel");
         if (hotel.isRoomAvailable(roomTypeInput)) {
             Room room = hotel.bookRoomIfAvailable(roomTypeInput);
             scanner.nextLine();
@@ -130,6 +135,23 @@ public class App {
 
     }
 
+    //Static method for checking in a customer
+    public static void checkInCustomer(Hotel hotel){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the booking id to check in?");
+       String bookingIdInput = scanner.nextLine();
+       hotel.checkIn(bookingIdInput);
+
+    }
+
+    //Static method for checking out a customer
+    public static void checkOutCustomer(Hotel hotel){
+        Scanner scanner = new Scanner (System.in);
+        System.out.println("Enter the booking Id to check out");
+        String bookingIdInput = scanner.nextLine();
+        hotel.checkOut(bookingIdInput);
+
+    }
 }
 
 

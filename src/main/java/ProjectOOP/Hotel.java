@@ -50,7 +50,7 @@ public class Hotel {
         this.bookingList = bookings;
     }
 
-    //Method to add room in roomList
+    //Method to manage/add room in roomList
     public void addRoom(Room room) {
         roomList.add(room); //adds room of type Room into array called roomList
 
@@ -63,7 +63,8 @@ public class Hotel {
 
     //Method to add booking to bookingList
     public void addBooking (Booking booking){
-    bookingList.add(booking);
+
+        bookingList.add(booking);
     }
 
 

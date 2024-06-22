@@ -12,7 +12,7 @@ public class Booking {
     private String guestName; //tracks another guest who is not the registered customer
     private String checkInDate;
     private String checkOutDate;
-
+//missing cost of booking?? + change local date
     //constructor
 
     public Booking( Customer customer,Room room, String guestName, String checkOutDate, String checkInDate) {
@@ -28,10 +28,12 @@ public class Booking {
     //Getters and Setters
 
     public String getBookingId() {
+
         return bookingId;
     }
 
     public void setBookingId(String bookingId) {
+
         this.bookingId = bookingId;
     }
 
@@ -40,6 +42,7 @@ public class Booking {
     }
 
     public void setGuestName(String guestName) {
+
         this.guestName = guestName;
     }
 
@@ -48,30 +51,37 @@ public class Booking {
     }
 
     public void setRoom(Room room) {
+
         this.room = room;
     }
 
     public Customer getCustomer() {
+
         return customer;
     }
 
     public void setCustomer(Customer customer) {
+
         this.customer = customer;
     }
 
     public String getCheckInDate() {
+
         return checkInDate;
     }
 
     public void setCheckInDate(String checkInDate) {
+
         this.checkInDate = checkInDate;
     }
 
     public String getCheckOutDate() {
+
         return checkOutDate;
     }
 
     public void setCheckOutDate(String checkOutDate) {
+
         this.checkOutDate = checkOutDate;
     }
 

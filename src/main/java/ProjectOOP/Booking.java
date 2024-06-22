@@ -1,35 +1,37 @@
 package ProjectOOP;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 public class Booking {
 
     //attributes
-    private int bookingId; //unique identity per booking for easy reference
-    private String guestName; //tracks another guest who is not the registered customer
-    private Room room; //links room to booking
+    private String bookingId; //unique identity per booking for easy reference
     private Customer customer; //links customer to booking
-    private LocalDate checkinDate;
-    private LocalDate checkoutDate;
+    private Room room; //links room to booking
+    private String guestName; //tracks another guest who is not the registered customer
+    private String checkInDate;
+    private String checkOutDate;
 
     //constructor
 
-    public Booking(int bookingId, String guestName, Room room, Customer customer, LocalDate checkinDate, LocalDate checkoutDate) {
-        this.bookingId = bookingId;
+    public Booking( Customer customer,Room room, String guestName, String checkOutDate, String checkInDate) {
+        this.bookingId = UUID.randomUUID().toString(); //universal unique identifier UUID so randomly generated and converted to string
         this.guestName = guestName;
         this.room = room;
         this.customer = customer;
-        this.checkinDate = checkinDate;
-        this.checkoutDate = checkoutDate;
+        this.checkOutDate = checkOutDate;
+        this.checkInDate = checkInDate;
     }
+
 
     //Getters and Setters
 
-    public int getBookingId() {
+    public String getBookingId() {
         return bookingId;
     }
 
-    public void setBookingId(int bookingId) {
+    public void setBookingId(String bookingId) {
         this.bookingId = bookingId;
     }
 
@@ -57,19 +59,31 @@ public class Booking {
         this.customer = customer;
     }
 
-    public LocalDate getCheckinDate() {
-        return checkinDate;
+    public String getCheckInDate() {
+        return checkInDate;
     }
 
-    public void setCheckinDate(LocalDate checkinDate) {
-        this.checkinDate = checkinDate;
+    public void setCheckInDate(String checkInDate) {
+        this.checkInDate = checkInDate;
     }
 
-    public LocalDate getCheckoutDate() {
-        return checkoutDate;
+    public String getCheckOutDate() {
+        return checkOutDate;
     }
 
-    public void setCheckoutDate(LocalDate checkoutDate) {
-        this.checkoutDate = checkoutDate;
+    public void setCheckOutDate(String checkOutDate) {
+        this.checkOutDate = checkOutDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Booking{" +
+                "bookingId='" + bookingId + '\'' +
+                ", customer=" + customer +
+                ", room=" + room +
+                ", guestName='" + guestName + '\'' +
+                ", checkInDate='" + checkInDate + '\'' +
+                ", checkOutDate='" + checkOutDate + '\'' +
+                '}';
     }
 }

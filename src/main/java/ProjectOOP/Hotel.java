@@ -50,22 +50,21 @@ public class Hotel {
         this.bookingList = bookings;
     }
 
-    //methods
-    //to add room in menu
+    //Method to add room in roomList
     public void addRoom(Room room) {
         roomList.add(room); //adds room of type Room into array called roomList
 
     }
 
-    //to add customers in list
+    //Method to add customers to customerList
     public void addCustomers(Customer customer) {
         customerList.add(customer);
     }
 
-    //add booking to list
-    // public void addBooking (){
-    //  bookingList.add
-    // }
+    //Method to add booking to bookingList
+    public void addBooking (Booking booking){
+    bookingList.add(booking);
+    }
 
 
     //method checks all rooms in the roomList array if available

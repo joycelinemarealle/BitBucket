@@ -14,19 +14,7 @@ public class HotelTest {  //testing comment //bacon
         Hotel hotel = new Hotel(); //define new hotel objects
        // do
 
-
        menuHotel1(hotel);
-
-
-
-
-
-
-
-
-
-
-
 
 
         List<RoomType> roomType = new ArrayList<>(); //created array to add rooms

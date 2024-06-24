@@ -29,28 +29,76 @@ public class Hotel {
         customerList.add(customer); //call method adds room into array called roomList
     }
 
-    public boolean isRoomAvailable(String roomType) {
+    public void addBooking(Booking bookings) {
+        bookingList.add(bookings); //call method adds room into array called roomList
+    }
+
+
+    public boolean isRoomAvailable(String roomTypeInput) {
 
         for (int i = 0; i < roomList.size(); i++) {
             Room room = roomList.get(i);
-            if (room.getRoomType().getType().equals(roomType)) {
+            if (room.getRoomType().getType().equals(roomTypeInput)) {
                 return true;
             }
         }
         return false;
     }
 
-    public Room findRoomByType(String roomType) {
-
+    public Room bookRoomByType(String roomTypeInput) {
         for (int i = 0; i < roomList.size(); i++) {
             Room room = roomList.get(i);
-            if (room.getRoomType().getType().equals(roomType)) {
+            if (room.getRoomType().getType().equals(roomTypeInput)) {
                 room.setOccupied(true);
                 return room;
             }
         }
         return null;
     }
+
+    public boolean isEmailInSystem(String checkInEmailInput) {
+        for (int i = 0; i < bookingList.size(); i++) {
+            Booking booking = bookingList.get(i);
+            if (booking.getCustomer().getEmail().equals(checkInEmailInput)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Booking checkInCustomer(String checkInEmailInput) {
+        for (int i = 0; i < bookingList.size(); i++) {
+            Booking booking = bookingList.get(i);
+            if (booking.getCustomer().getEmail().equals(checkInEmailInput)) {
+                booking.setCheckedIn(true);
+                return booking;
+            }
+        }
+        return null;
+    }
+
+    public boolean isEmailInSystem2(String checkOutEmailInput) {
+        for (int i = 0; i < bookingList.size(); i++) {
+            Booking booking = bookingList.get(i);
+            if (booking.getCustomer().getEmail().equals(checkOutEmailInput)) {
+                return true;
+            }
+        }
+        return false;
+
+
+    }
+    public Booking checkOutCustomer(String checkOutEmailInput) {
+        for (int i = 0; i < bookingList.size(); i++) {
+            Booking booking = bookingList.get(i);
+            if (booking.getCustomer().getEmail().equals(checkOutEmailInput)) {
+                booking.setCheckOut(true);
+                return booking;
+            }
+        }
+        return null;
+    }
+}
 
     @Override
     public String toString() {
@@ -60,4 +108,4 @@ public class Hotel {
                 ", roomList=" + roomList +
                 '}';
     }
-}
+

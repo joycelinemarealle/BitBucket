@@ -5,6 +5,14 @@ public class Room {
     private int roomId;
     private RoomType roomType;
     private boolean isOccupied;
+    private boolean isClean;
+
+    public Room(int roomId, RoomType roomType) {
+        this.roomId = roomId;
+        this.roomType = roomType;
+        this.isOccupied = false;
+        this.isClean = true;
+    }
 
     public int getRoomId() {
         return roomId;
@@ -22,7 +30,7 @@ public class Room {
         this.roomType = roomType;
     }
 
-    public boolean getOccupied() {
+    public boolean isOccupied() {
         return isOccupied;
     }
 
@@ -30,14 +38,16 @@ public class Room {
         isOccupied = occupied;
     }
 
-    //constructor
-    public Room(int roomId, RoomType roomType) {
-        this.roomId = roomId;
-        this.roomType = roomType;
-        this.isOccupied = false;//
-    }
+    public boolean isClean() {
+        return isClean;
     }
 
-    //getters and setters
+    public boolean setClean(boolean clean) {
+        isClean = clean;
+        return clean;
+    }
+}
+
+
 
 

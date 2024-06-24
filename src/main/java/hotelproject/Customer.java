@@ -2,12 +2,12 @@ package hotelproject;
 
 public class Customer {
     private String name;
-    //private int id ;
+    private String email; ;
 
 
-    public Customer(String name) {
+    public Customer(String name, String email) {
         this.name = name;
-        //this.id = id;
+        this.email = email;
     }
 
     public String getName() {
@@ -18,10 +18,11 @@ public class Customer {
         this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return "Customer{" +
-                "name='" + name + '\'' +
-                '}';
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

@@ -38,7 +38,7 @@ public class Hotel {
 
         for (int i = 0; i < roomList.size(); i++) {
             Room room = roomList.get(i);
-            if (room.getRoomType().getType().equals(roomTypeInput)) {
+            if (room.getRoomType().getType().equals(roomTypeInput) && !room.isOccupied()) { //room available if not occupied and also is clean
                 return true;
             }
         }
@@ -48,7 +48,7 @@ public class Hotel {
     public Room bookRoomByType(String roomTypeInput) {
         for (int i = 0; i < roomList.size(); i++) {
             Room room = roomList.get(i);
-            if (room.getRoomType().getType().equals(roomTypeInput)) {
+            if (room.getRoomType().getType().equals(roomTypeInput) && !room.isOccupied()  ) { //room available if not occupied
                 room.setOccupied(true);
                 return room;
             }
@@ -69,14 +69,17 @@ public class Hotel {
     public Booking checkInCustomer(String checkInEmailInput) {
         for (int i = 0; i < bookingList.size(); i++) {
             Booking booking = bookingList.get(i);
-            if (booking.getCustomer().getEmail().equals(checkInEmailInput)) {
+            if (booking.getCustomer().getEmail().equals(checkInEmailInput) ) {
+                if(! booking.getRoom().isClean()) {
+                    System.out.println("Cleaning is necessary! Staff is cleaning room before Customer checks in.");
+                    booking.getRoom().setClean(true);
+                }
                 booking.setCheckedIn(true);
                 return booking;
             }
         }
         return null;
     }
-
     public boolean isEmailInSystem2(String checkOutEmailInput) {
         for (int i = 0; i < bookingList.size(); i++) {
             Booking booking = bookingList.get(i);
@@ -85,20 +88,20 @@ public class Hotel {
             }
         }
         return false;
-
-
     }
+
     public Booking checkOutCustomer(String checkOutEmailInput) {
         for (int i = 0; i < bookingList.size(); i++) {
             Booking booking = bookingList.get(i);
             if (booking.getCustomer().getEmail().equals(checkOutEmailInput)) {
                 booking.setCheckOut(true);
+                booking.getRoom().setClean(false); //dirty needs to be cleaned
                 return booking;
             }
         }
         return null;
     }
-}
+
 
     @Override
     public String toString() {
@@ -108,4 +111,5 @@ public class Hotel {
                 ", roomList=" + roomList +
                 '}';
     }
+}
 

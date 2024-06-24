@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class App {  //testing comment //bacon
@@ -12,10 +13,6 @@ public class App {  //testing comment //bacon
     //booking Menu
         Scanner scanner = new Scanner(System.in);
         Hotel hotel = new Hotel(); //define new hotel objects
-       // do
-
-
-
 
         List<RoomType> roomType = new ArrayList<>(); //created array to add rooms
         RoomType roomType1 = new RoomType(150, "Double Standard", 2);
@@ -28,14 +25,12 @@ public class App {  //testing comment //bacon
         roomType.add(roomType3);
         roomType.add(roomType4);
 
-
-
         Room room1 = new Room(1, roomType1);
-        Room room2 = new Room(1, roomType1);
-        Room room3 = new Room(1, roomType2);
-        Room room4 = new Room(1, roomType2);
-        Room room5 = new Room(1, roomType3);
-        Room room6 = new Room(1, roomType4);
+        Room room2 = new Room(2, roomType1);
+        Room room3 = new Room(3, roomType2);
+        Room room4 = new Room(4, roomType2);
+        Room room5 = new Room(5, roomType3);
+        Room room6 = new Room(6, roomType4);
 
         //adding the rooms to hotel
         hotel.addRoom(room1);
@@ -46,14 +41,7 @@ public class App {  //testing comment //bacon
         hotel.addRoom(room6);
 
         menuHotel1(hotel);
-
-
-
-
-
     }
-
-
 
     public static  void startingMenu(){
        // System.out.println("Booking for Hotel 1");
@@ -70,7 +58,8 @@ public class App {  //testing comment //bacon
             System.out.println("Type 0 to Exit Menu\n" +
                     "Type 1 to start booking\n" +
                     "Type 2 to check in customer\n" +
-                    "Type 3 to check out customer\n");
+                    "Type 3 to check out customer\n"
+                     );
             int userInput = scanner.nextInt();
             if (userInput == 0){
                 break;
@@ -85,6 +74,10 @@ public class App {  //testing comment //bacon
                     scanner.nextLine();
                     System.out.println("What is your customer's first and last name?");
                     String customerNameInput = scanner.nextLine();
+                    scanner.nextLine();
+
+                    System.out.println("How many people per room? max 2");
+                    int numberGuestInput = scanner.nextInt();
                     scanner.nextLine();
 
                     System.out.println("What is the additional guest's first and last name?");
@@ -107,31 +100,76 @@ public class App {  //testing comment //bacon
                     String checkOutDateInput = scanner.nextLine();
                     LocalDate localcheckOutDate = LocalDate.parse(checkOutDateInput, formatter2);
 
+
+
+
+//                    System.out.println("Do you want to add any additional services. Type breakfast?");
+//                    //String guestNameInput = scanner.nextLine();
+//                    //scanner.nextLine();
+//
+//                   // System.out.println("How many people");
+//                    //String guestNameInput = scanner.nextLine();
+//                    scanner.nextLine();
+//
+//
+//                    System.out.println("How many days");
+//                    String guestNameInput = scanner.nextLine();
+//                    scanner.nextLine();
+//
+//
+//                    System.out.println("What is the additional guest's first and last name?");
+//                    String guestNameInput = scanner.nextLine();
+//                    scanner.nextLine();
+//
+//
+//                    System.out.println("What is the additional guest's first and last name?");
+//                    String guestNameInput = scanner.nextLine();
+//                    scanner.nextLine();
+
                     // Create a customer object
                     Customer customer = new Customer(customerNameInput, customerEmailInput);
 
                     // Add Customer to Hotel customer'slist
                     hotel.addCustomer(customer);
 
-                    // set room attribute isOccupied to true
-                    room.setOccupied(true);
-                    room.setClean(true);
 
-                    if (room.setClean(true)){
-                        System.out.println("Room clean and available");
-
-                    }
-                    else{
-                        System.out.println("Room unavailable not clean");
-
-                    }
                     // Create a booking!
                     //new booking objects
-                    Booking bookings = new Booking(customer, room, guestNameInput, localcheckIndate, localcheckOutDate);
-                    System.out.println("Booking successful for:" + customerNameInput + "With room:" + roomTypeInput + "Guests are:" + guestNameInput + "Checkin Date:" + checkInDateInput + "Checkout Date:" + localcheckOutDate);
+                    Booking booking = new Booking(customer, room, guestNameInput, localcheckIndate, localcheckOutDate, numberGuestInput);
 
                     //add to hotel
-                    hotel.addBooking(bookings);
+                    hotel.addBooking(booking);
+
+                    //additional services
+//                    int  booking.costOfBreakfast(booking);
+//                    booking.costOfRoomService(booking);
+//                    booking.costOfLaundry(booking);
+                    System.out.println("Would you like Breakfast? Type b \n");
+                    String addOnInput = scanner.nextLine();
+                    if (addOnInput.equals("b")) {
+                        booking.costOfBreakfast();
+                        booking.addCostOfBreakfast();
+                    }
+
+                    System.out.println("Would you like Room Service. Type r? \n" ) ;
+                    addOnInput = scanner.nextLine();
+                    if (addOnInput.equals("r")) {
+                        booking.costOfRoomService();
+                        booking.addCostOfRoomService();
+                    }
+
+                    System.out.println("Would you like Laundry . Type l? \n" ) ;
+                    addOnInput = scanner.nextLine();
+                    if (addOnInput.equals("l")) {
+                        booking.costOfLaundry();
+                        booking.addCostOfLaundry();
+
+                    }
+
+                    System.out.println("Booking successful for:" + customerNameInput + "With room:" + roomTypeInput + "Guests are:" +
+                            "This is your Guest" + guestNameInput + "Checkin Date:" + checkInDateInput + "Checkout Date:" + localcheckOutDate + "Total cost is " + booking.(booking));
+
+
                 }
             } else if (userInput == 2) {
                 System.out.println(" What is the customer's email address?");
@@ -142,6 +180,7 @@ public class App {  //testing comment //bacon
                 if (hotel.isEmailInSystem(checkInEmailInput)) {
                     Booking booking = hotel.checkInCustomer(checkInEmailInput);
                     System.out.println("You successfully checked in");
+
                 } else {
                     System.out.println("No booking made for the customer with the specified email");
                 }
@@ -156,7 +195,7 @@ public class App {  //testing comment //bacon
 
                 if (hotel.isEmailInSystem2(checkOutEmailInput)) {
                     Booking booking = hotel.checkOutCustomer(checkOutEmailInput);
-                    System.out.println("You successfully checked in");
+                    System.out.println("You successfully checked out");
                 } else {
                     System.out.println("No booking made for the customer with the specified email");
                 }

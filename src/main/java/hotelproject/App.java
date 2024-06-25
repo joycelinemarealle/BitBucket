@@ -13,13 +13,15 @@ public class App {  //testing comment //bacon
         //booking Menu
         Scanner scanner = new Scanner(System.in);
         Hotel hotel = new Hotel(); //define new hotel objects
+        //Create new Hotel object
 
+        //Old Hotel
         List<RoomType> roomType = new ArrayList<>(); //created array to add rooms
-        RoomType roomType1 = new RoomType(150, "Double Standard", 2);
-        RoomType roomType2 = new RoomType(200, "Double Deluxe", 2);
+        RoomType roomType1 = new RoomType(150, "Double Standard", 2,2);
+        RoomType roomType2 = new RoomType(200, "Double Deluxe", 2,2);
         ;
-        RoomType roomType3 = new RoomType(300, "Junior Suite", 2);
-        RoomType roomType4 = new RoomType(400, "Grand Suite", 2);
+        RoomType roomType3 = new RoomType(300, "Junior Suite", 2,1);
+        RoomType roomType4 = new RoomType(400, "Grand Suite", 2,1);
 
         roomType.add(roomType1);
         roomType.add(roomType2);
@@ -41,31 +43,81 @@ public class App {  //testing comment //bacon
         hotel.addRoom(room5);
         hotel.addRoom(room6);
 
+
+
+        //Copy and paste from line 19 to 46 to here
+        Hotel newHotel = new Hotel(); //define newHotel objects
+        List<RoomType> roomTypeNew  = new ArrayList<>(); //created array to add rooms
+        RoomType roomTypen1 = new RoomType(150, "Double Standard", 2,4);
+        RoomType roomTypen2 = new RoomType(200, "Double Deluxe", 2,4);
+        RoomType roomTypen3 = new RoomType(300, "Junior Suite", 2,1);
+        RoomType roomTypen4 = new RoomType(400, "Grand Suite", 2,1);
+        RoomType roomTypen5 = new RoomType(225, "Family room", 3,2);
+
+        roomTypeNew.add(roomType1);
+        roomTypeNew.add(roomType2);
+        roomTypeNew.add(roomType3);
+        roomTypeNew.add(roomType4);
+
+        Room room_n1 = new Room(1, roomTypen1);
+        Room room_n2 = new Room(2, roomTypen1);
+        Room room_n3 = new Room(3, roomTypen1);
+        Room room_n4 = new Room(4, roomTypen1);
+        Room room_n5 = new Room(5, roomTypen2);
+        Room room_n6 = new Room(6, roomTypen2);
+        Room room_n7 = new Room(7, roomTypen2);
+        Room room_n8 = new Room(8, roomTypen2);
+        Room room_n9 = new Room(9, roomTypen5);
+        Room room_n10 = new Room(10, roomTypen5);
+        Room room_n11 = new Room(11, roomTypen3);
+        Room room_n12 = new Room(12, roomTypen4);
+
+
+        //adding the rooms to hotel
+        newHotel.addRoom(room_n1);
+        newHotel.addRoom(room_n2);
+        newHotel.addRoom(room_n3);
+        newHotel.addRoom(room_n4);
+        newHotel.addRoom(room_n5);
+        newHotel.addRoom(room_n6);
+        newHotel.addRoom(room_n7);
+        newHotel.addRoom(room_n8);
+        newHotel.addRoom(room_n9);
+        newHotel.addRoom(room_n10);
+        newHotel.addRoom(room_n11);
+        newHotel.addRoom(room_n12);
+
+
         menuHotel1(hotel);
     }
 
-    public static void startingMenu() {
-        // System.out.println("Booking for Hotel 1");
-        //System.out.println("Booking for Hotel 2");
-
-    }
 
     public static void menuHotel1(Hotel hotel) {
 
         Scanner scanner = new Scanner(System.in);
 
+        /*
+        Due to time constraint,
+        We could not to update the user interface based on hotel 1 and hotel 2
+        and room update.We know that we need to inherit from hotel class
+         */
 
         while (true) {
             System.out.println("Type 0 to Exit Menu\n" +
                     "Type 1 to start booking\n" +
                     "Type 2 to check in customer\n" +
                     "Type 3 to check out customer\n" +
-                    "Type 4 to update rate of room based on season \n");
+                    "Type 4 to update rate of room based on season \n"+
+            "Type 5 to create a room\n" +
+                    "Type 6 to add room\n" +
+                    "Type 7 to remove remove\n");
             int userInput = scanner.nextInt();
             if (userInput == 0) {
                 break;
             }
             if (userInput == 1) {
+
+                System.out.println("Which ");
                 System.out.println("What type of room would you like to book \n" +
                         "Double Standard, Double Deluxe, Junior Suite, Grand Suite");
                 scanner.nextLine();
@@ -189,17 +241,89 @@ public class App {  //testing comment //bacon
                     int newPrice = scanner.nextInt();
                     //set new price
                     hotel.setRoomTypePrice(roomtype, newPrice);
-                    System.out.println("You have set new rpice");
+                    System.out.println("You have set new price");
                 }
 
-
-                // ask for room type by name
-                // find room type
-                // RoomType rt = hotel.getRoomType(name);
-                // ask for new price
-                // hotel.setRoomTypePrice(rt, price);
             }
+
+             else if (userInput ==5){
+                scanner.nextLine();
+                System.out.println("What room type would you like to add eg Family Room?");
+                String newRoomType = scanner.next();
+                //n.setType(newRoomType);
+                System.out.println("You have set new RoomType");
+                //do for price
+                System.out.println("What is the price of the new room type?");
+                int newPrice = scanner.nextInt();
+                //n.setPrice(newPrice);
+                System.out.println("You have set new price");
+                //do for capacity
+                System.out.println("What is the capacity for the new room type?");
+                int newCapacity = scanner.nextInt();
+                //n.setPrice(newCapacity);
+                System.out.println("You have set new capacity");
+                //do for roomQuantity
+                System.out.println("What is the amount of rooms for the new room type?");
+                int newRoomQuantity = scanner.nextInt();
+                scanner.nextLine();
+               // n.setRoomQuantity(newRoomQuantity);
+                RoomType n = new RoomType(newPrice , newRoomType , newCapacity, newRoomQuantity);
+                for(int i =0; i < newRoomQuantity; i++) {
+                    Room room = new Room(0, n); //create new rooms based on
+                    hotel.addRoom(room);
+                }
+
+            }
+
+             else if( userInput ==6 ){
+                scanner.nextLine();
+                System.out.println("What room type would you like to update eg Family Room?");
+                String newRoomType = scanner.next();
+                //check first if roomtype is in system before setting
+                if ( hotel.findRoomType(newRoomType).equals(newRoomType)){
+                    RoomType n = new RoomType(0 , null , 0,0);
+                    n.setType(newRoomType);
+
+                    //do for price
+                    System.out.println("What is the price of the new room type?");
+                    int newPrice = scanner.nextInt();
+                    scanner.nextLine();
+                    n.setPrice(newPrice);
+
+                    //do for capacity
+                    System.out.println("What is the capacity for the new room type?");
+                    int newCapacity = scanner.nextInt();
+                    n.setCapacity(newCapacity);
+
+                    //do for roomQuantity
+                    System.out.println("What is the amount of rooms for the new room type?");
+                    int newRoomQuantity = scanner.nextInt();
+                    n.setRoomQuantity(newRoomQuantity);
+                } else {
+                    System.out.println("Room not found! Create a new roomType");
+                }
+
+            }
+
+//             else if (userInput == 7){
+//                scanner.nextLine();
+//                System.out.println("What room type would you like to remove?");
+//                String removeRoomType = scanner.next();
+//                if ( hotel.findRoomType(removeRoomType).equals(removeRoomType)){
+//                RoomType n = new RoomType( ,  , ,);
+//                n.setType(removeRoomType);
+//                System.out.println(removeRoomType + "has been successfully removed");
+//            }
+//
+
+
+            // ask for room type by name
+            // find room type
+            // RoomType rt = hotel.getRoomType(name);
+            // ask for new price
+            // hotel.setRoomTypePrice(rt, price);
 
         }
     }
 }
+//Worked on part 7 last but code is not fully working

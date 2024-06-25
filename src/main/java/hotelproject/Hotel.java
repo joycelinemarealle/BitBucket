@@ -160,10 +160,12 @@ public class Hotel {
         return null;
     }
 
+
     //setRoom
     public void setRoomTypePrice (RoomType roomType, int newPrice){
         roomType.setPrice(newPrice);
     }
+
     /*
      * allows user to enter room type
      * finds room type

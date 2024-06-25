@@ -71,14 +71,13 @@ public class App {  //testing comment //bacon
                 String roomTypeInput = scanner.nextLine();
                 if (hotel.isRoomAvailable(roomTypeInput)) {
                     Room room = hotel.bookRoomByType(roomTypeInput);
-                    scanner.nextLine();
+                    //scanner.nextLine();
                     System.out.println("What is your customer's first and last name?");
                     String customerNameInput = scanner.nextLine();
-                    scanner.nextLine();
-
+                   // scanner.nextLine();
                     System.out.println("How many people per room? max 2");
                     int numberGuestInput = scanner.nextInt();
-                    scanner.nextLine();
+                    //scanner.nextLine();
 
                     System.out.println("What is the additional guest's first and last name?");
                     String guestNameInput = scanner.nextLine();
@@ -86,45 +85,19 @@ public class App {  //testing comment //bacon
 
                     System.out.println("What is your customer's email?");
                     String customerEmailInput = scanner.nextLine();
-                    scanner.nextLine();
+                    //scanner.nextLine();
 
                     //convert user input to local date
                     System.out.println("What is the checkin Date yyyy-MM-dd");
                     DateTimeFormatter formatter1 = DateTimeFormatter.ofPattern("yyyy-MM-dd");
                     String checkInDateInput = scanner.nextLine();
                     LocalDate localcheckIndate = LocalDate.parse(checkInDateInput, formatter1);
-                    scanner.nextLine();
+                    //scanner.nextLine();
 
                     System.out.println("What is the checkout Date yyyy-MM-dd");
                     DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("yyyy-MM-dd");
                     String checkOutDateInput = scanner.nextLine();
                     LocalDate localcheckOutDate = LocalDate.parse(checkOutDateInput, formatter2);
-
-
-
-
-//                    System.out.println("Do you want to add any additional services. Type breakfast?");
-//                    //String guestNameInput = scanner.nextLine();
-//                    //scanner.nextLine();
-//
-//                   // System.out.println("How many people");
-//                    //String guestNameInput = scanner.nextLine();
-//                    scanner.nextLine();
-//
-//
-//                    System.out.println("How many days");
-//                    String guestNameInput = scanner.nextLine();
-//                    scanner.nextLine();
-//
-//
-//                    System.out.println("What is the additional guest's first and last name?");
-//                    String guestNameInput = scanner.nextLine();
-//                    scanner.nextLine();
-//
-//
-//                    System.out.println("What is the additional guest's first and last name?");
-//                    String guestNameInput = scanner.nextLine();
-//                    scanner.nextLine();
 
                     // Create a customer object
                     Customer customer = new Customer(customerNameInput, customerEmailInput);
@@ -132,18 +105,17 @@ public class App {  //testing comment //bacon
                     // Add Customer to Hotel customer'slist
                     hotel.addCustomer(customer);
 
-
                     // Create a booking!
                     //new booking objects
                     Booking booking = new Booking(customer, room, guestNameInput, localcheckIndate, localcheckOutDate, numberGuestInput);
 
+                    //cost of Hotel Stay without addons
+                    booking.costHotelStay();
+                    booking.addCostHotelStay();
+
                     //add to hotel
                     hotel.addBooking(booking);
 
-                    //additional services
-//                    int  booking.costOfBreakfast(booking);
-//                    booking.costOfRoomService(booking);
-//                    booking.costOfLaundry(booking);
                     System.out.println("Would you like Breakfast? Type b \n");
                     String addOnInput = scanner.nextLine();
                     if (addOnInput.equals("b")) {
@@ -163,11 +135,14 @@ public class App {  //testing comment //bacon
                     if (addOnInput.equals("l")) {
                         booking.costOfLaundry();
                         booking.addCostOfLaundry();
-
                     }
 
-                    System.out.println("Booking successful for:" + customerNameInput + "With room:" + roomTypeInput + "Guests are:" +
-                            "This is your Guest" + guestNameInput + "Checkin Date:" + checkInDateInput + "Checkout Date:" + localcheckOutDate + "Total cost is " + booking.(booking));
+                    /// to calculate discount
+                    //call the updated cost after discount applied
+                    double finalCost = hotel.applyDiscount(booking,customerEmailInput);
+
+                    System.out.println("Booking successful for: "+ customerNameInput + "\nWith room: " + roomTypeInput + "\nGuests are: " +
+                            "\nThis is your Guest: " + guestNameInput + "\nCheckin Date: " + checkInDateInput + "\nCheckout Date: " + localcheckOutDate + "\nTotal cost is: " + booking.getTotalAmount());
 
 
                 }
@@ -196,6 +171,8 @@ public class App {  //testing comment //bacon
                 if (hotel.isEmailInSystem2(checkOutEmailInput)) {
                     Booking booking = hotel.checkOutCustomer(checkOutEmailInput);
                     System.out.println("You successfully checked out");
+                    System.out.println("Your final bill is: ");
+                    System.out.println(hotel.applyDiscount(booking,checkOutEmailInput));
                 } else {
                     System.out.println("No booking made for the customer with the specified email");
                 }
@@ -205,6 +182,3 @@ public class App {  //testing comment //bacon
         }
     }
 }
-//DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-//convert user input to local date
-//LocalDate checkInLocalDate = LocalDate.parse(checkInDateInput,formatter);

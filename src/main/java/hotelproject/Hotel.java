@@ -1,5 +1,7 @@
 package hotelproject;
 
+import java.awt.print.Book;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -91,6 +93,7 @@ public class Hotel {
     }
 
     public Booking checkOutCustomer(String checkOutEmailInput) {
+//        double diff = ChronoUnit.DAYS.between(b.getCheckIndate(), b.getCheckOutdate());
         for (int i = 0; i < bookingList.size(); i++) {
             Booking booking = bookingList.get(i);
             if (booking.getCustomer().getEmail().equals(checkOutEmailInput)) {
@@ -100,6 +103,49 @@ public class Hotel {
             }
         }
         return null;
+    }
+
+    //method to find customer to calculate loyalty
+    public Booking findBookingByEmail(String customerEmailInput) {
+        for (int i = 0; i < bookingList.size(); i++) {
+            Booking booking = bookingList.get(i);
+            if (booking.getCustomer().getEmail().equals(customerEmailInput)) {
+                return booking;
+            }
+        }
+        return null;
+    }
+
+
+    //calculate days if email in booking
+//    public int calculateBookingCost(Booking booking) {
+//        Booking booking = findBookingByEmail(customerEmailInput);
+//        if(booking != null) {
+//            int nightsStay = booking.calculateNightsStayed();
+//        }
+//    }
+
+    //calculate discount
+    public  double calculateDiscount (Booking booking) {
+        // double bookingCost = booking.getTotalAmount();
+        int nightsStayed = booking.getCustomer().getLoyaltyPoint();
+        double discount = 0.0;
+        if (nightsStayed >= 20) {
+            discount = 0.20;  //20% cap
+        } else {
+            discount = nightsStayed * 0.01; //1% discount per day
+        }
+        return discount;
+    }
+
+    //apply discount to final bill
+    public double applyDiscount(Booking booking, String customerEmailInput){
+        double discount = calculateDiscount(booking);
+        double total = booking.getTotalAmount();
+        double finalAmount = total - (total * discount);
+        booking.getCustomer().setLoyaltyPoint(0);
+        return finalAmount;
+
     }
 
 

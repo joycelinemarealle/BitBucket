@@ -24,7 +24,10 @@ public class Booking {
         this.numberOfGuest = numberOfGuest;
         this.isCheckedIn = false;
         this.isCheckOut = false;
+        this.customer.addLoyaltyPoints(calculateNightsStayed());
     }
+
+
 
     public Customer getCustomer() {
         return customer;
@@ -121,7 +124,6 @@ public class Booking {
         System.out.println("How many meals for room service?");
         int numberMealInput = scanner.nextInt();
         scanner.nextLine();
-
         System.out.println("How many people for room service");
         int numberPeopleInput = scanner.nextInt();
         int costOfRoomService = (20 * numberMealInput * numberPeopleInput);
@@ -130,11 +132,10 @@ public class Booking {
 
     public void addCostOfRoomService() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("How many meals for room service?");
+        System.out.println("Confirm, How many meals for room service?");
         int numberMealInput = scanner.nextInt();
         scanner.nextLine();
-
-        System.out.println("How many people for room service");
+        System.out.println("Confirm, How many people for room service");
         int numberPeopleInput = scanner.nextInt();
         int costOfRoomService = (20 * numberMealInput * numberPeopleInput);
         totalAmount += costOfRoomService;
@@ -149,14 +150,19 @@ public class Booking {
     }
     public void addCostOfLaundry() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("How many items for laundry");
+        System.out.println("Confirm, How many items for laundry");
         int laundryItemsInput = scanner.nextInt();
         int costOfLaundryService = (5 * laundryItemsInput);
-        totalAmount += scanner.nextInt();
+        totalAmount += costOfLaundryService;
     }
 
-    private int getTotalAmount () {
+    public int getTotalAmount () {
         return totalAmount;
+    }
+
+    //method to calculate Nights stayed
+    public int calculateNightsStayed(){
+        return (int) ChronoUnit.DAYS.between(checkIndate, checkOutdate); //how track old bookings to get checkin and checkout date?
     }
 
     @Override

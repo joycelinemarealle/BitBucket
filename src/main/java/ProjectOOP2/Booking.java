@@ -169,8 +169,8 @@ public class Booking {
         totalAmount -= (int) (totalAmount * discount); //totalAmount is final bill - totalAmount *discount //change to int since totlaamount defined as int
     }
 
-    //complete booking by calling method from customer that adds nights
-    public void completeBooking(){
+    //call method from customer that updates number of days stayed during checkouts for future reference
+    public void updateCustomerLoyaltyNights(){
         int nightsStayed = (int) ChronoUnit.DAYS.between(checkIndate, checkOutdate);
         customer.addNightsStayed(nightsStayed);
     }

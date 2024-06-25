@@ -107,12 +107,15 @@ public class App {  //testing comment //bacon
                     // Add Customer to Hotel customer'slist
                     hotel.addCustomer(customer);
 
-
                     // Create a booking!
                     //new booking objects
                     Booking booking = new Booking(customer, room, guestNameInput, localcheckIndate, localcheckOutDate, numberGuestInput);
 
-                    //apply dicount when new booking made
+                    // call the add the cost of the hotel stay
+                    booking.costHotelStay();
+                    booking.addCostHotelStay();
+
+                    // call the apply discount to hotel stay cost to apply discount when new booking made
                    booking.applyLoyaltyDiscount();
 
                     //add to hotel
@@ -199,7 +202,7 @@ public class App {  //testing comment //bacon
 2 Update the Booking class to add loyalty points upon checkout.
 3 Update the Hotel class to calculate discounts based on loyalty points.
 4 Update the App class to display and apply discounts during booking.
-Complete Booking and Update Loyalty Points: Added booking.completeBooking(); in the checkOutCustomer method to update the customer's total nights stayed when they check out.
+Complete Booking and Update Loyalty Points: Added booking.updateLoyaltyNights(); in the checkOutCustomer method to update the customer's total nights stayed when they check out.
 
 Calculate Discount: Added a calculateDiscount method to calculate the discount based on the customer's loyalty points.
 

@@ -103,6 +103,7 @@ public class Hotel {
             Booking booking = bookingList.get(i);
             if (booking.getCustomer().getEmail().equals(checkOutEmailInput)) {
                 booking.setCheckOut(true);
+                booking.updateCustomerLoyaltyNights(); //update while checkout the amount of days stayed
                 booking.getRoom().setClean(false); //dirty needs to be cleaned
                 return booking;
             }
@@ -122,7 +123,6 @@ public class Hotel {
    }
 
    //method to calculate discount based on loyalty points
-
     public double calculateDiscount (Customer customer){
         return customer.getLoyalDiscount();
     }

@@ -5,10 +5,12 @@ public class RoomType {
     private String type;
     private int capacity;
 
+
     public RoomType(int price, String type, int capacity) {
         this.price = price;
         this.type = type;
         this.capacity = capacity;
+
     }
 
     public int getPrice() {
@@ -34,4 +36,6 @@ public class RoomType {
     public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
+
+
 }

@@ -149,6 +149,32 @@ public class Hotel {
     }
 
 
+    //check if room type in roomList
+    public RoomType findRoomType(String roomType) {
+        for (int i = 0; i < roomList.size(); i++) {
+            Room room = roomList.get(i);
+            if (room.getRoomType().getType().equals(roomType)   ) { //room available if not occupied
+                return room.getRoomType();
+            }
+        }
+        return null;
+    }
+
+    //setRoom
+    public void setRoomTypePrice (RoomType roomType, int newPrice){
+        roomType.setPrice(newPrice);
+    }
+    /*
+     * allows user to enter room type
+     * finds room type
+     * asks for updated price
+     * sets price on room type
+     */
+
+    // getRoomType(String typeName)
+
+    // setRoomTypePrice(RoomType type, int price)
+
     @Override
     public String toString() {
         return "Hotel{" +

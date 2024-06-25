@@ -10,13 +10,14 @@ import java.util.Scanner;
 public class App {  //testing comment //bacon
     public static void main(String[] args) {
 
-    //booking Menu
+        //booking Menu
         Scanner scanner = new Scanner(System.in);
         Hotel hotel = new Hotel(); //define new hotel objects
 
         List<RoomType> roomType = new ArrayList<>(); //created array to add rooms
         RoomType roomType1 = new RoomType(150, "Double Standard", 2);
-        RoomType roomType2 = new RoomType(200, "Double Deluxe", 2);;
+        RoomType roomType2 = new RoomType(200, "Double Deluxe", 2);
+        ;
         RoomType roomType3 = new RoomType(300, "Junior Suite", 2);
         RoomType roomType4 = new RoomType(400, "Grand Suite", 2);
 
@@ -43,8 +44,8 @@ public class App {  //testing comment //bacon
         menuHotel1(hotel);
     }
 
-    public static  void startingMenu(){
-       // System.out.println("Booking for Hotel 1");
+    public static void startingMenu() {
+        // System.out.println("Booking for Hotel 1");
         //System.out.println("Booking for Hotel 2");
 
     }
@@ -58,10 +59,10 @@ public class App {  //testing comment //bacon
             System.out.println("Type 0 to Exit Menu\n" +
                     "Type 1 to start booking\n" +
                     "Type 2 to check in customer\n" +
-                    "Type 3 to check out customer\n"
-                     );
+                    "Type 3 to check out customer\n" +
+                    "Type 4 to update rate of room based on season \n");
             int userInput = scanner.nextInt();
-            if (userInput == 0){
+            if (userInput == 0) {
                 break;
             }
             if (userInput == 1) {
@@ -74,7 +75,7 @@ public class App {  //testing comment //bacon
                     //scanner.nextLine();
                     System.out.println("What is your customer's first and last name?");
                     String customerNameInput = scanner.nextLine();
-                   // scanner.nextLine();
+                    // scanner.nextLine();
                     System.out.println("How many people per room? max 2");
                     int numberGuestInput = scanner.nextInt();
                     //scanner.nextLine();
@@ -123,14 +124,14 @@ public class App {  //testing comment //bacon
                         booking.addCostOfBreakfast();
                     }
 
-                    System.out.println("Would you like Room Service. Type r? \n" ) ;
+                    System.out.println("Would you like Room Service. Type r? \n");
                     addOnInput = scanner.nextLine();
                     if (addOnInput.equals("r")) {
                         booking.costOfRoomService();
                         booking.addCostOfRoomService();
                     }
 
-                    System.out.println("Would you like Laundry . Type l? \n" ) ;
+                    System.out.println("Would you like Laundry . Type l? \n");
                     addOnInput = scanner.nextLine();
                     if (addOnInput.equals("l")) {
                         booking.costOfLaundry();
@@ -139,9 +140,9 @@ public class App {  //testing comment //bacon
 
                     /// to calculate discount
                     //call the updated cost after discount applied
-                    double finalCost = hotel.applyDiscount(booking,customerEmailInput);
+                    double finalCost = hotel.applyDiscount(booking, customerEmailInput);
 
-                    System.out.println("Booking successful for: "+ customerNameInput + "\nWith room: " + roomTypeInput + "\nGuests are: " +
+                    System.out.println("Booking successful for: " + customerNameInput + "\nWith room: " + roomTypeInput + "\nGuests are: " +
                             "\nThis is your Guest: " + guestNameInput + "\nCheckin Date: " + checkInDateInput + "\nCheckout Date: " + localcheckOutDate + "\nTotal cost is: " + booking.getTotalAmount());
 
 
@@ -172,11 +173,31 @@ public class App {  //testing comment //bacon
                     Booking booking = hotel.checkOutCustomer(checkOutEmailInput);
                     System.out.println("You successfully checked out");
                     System.out.println("Your final bill is: ");
-                    System.out.println(hotel.applyDiscount(booking,checkOutEmailInput));
+                    System.out.println(hotel.applyDiscount(booking, checkOutEmailInput));
                 } else {
                     System.out.println("No booking made for the customer with the specified email");
                 }
 
+            } else if (userInput == 4) {
+                scanner.nextLine();
+                System.out.println("Enter room type you would like to update price for");
+                String roomTypeName = scanner.nextLine();
+                RoomType roomtype = hotel.findRoomType(roomTypeName);
+
+                if (roomtype != null) { //if roomtype is not absent
+                    System.out.println("What is the new price you would like to set?");
+                    int newPrice = scanner.nextInt();
+                    //set new price
+                    hotel.setRoomTypePrice(roomtype, newPrice);
+                    System.out.println("You have set new rpice");
+                }
+
+
+                // ask for room type by name
+                // find room type
+                // RoomType rt = hotel.getRoomType(name);
+                // ask for new price
+                // hotel.setRoomTypePrice(rt, price);
             }
 
         }

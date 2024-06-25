@@ -165,6 +165,29 @@ public class Booking {
         return (int) ChronoUnit.DAYS.between(checkIndate, checkOutdate); //how track old bookings to get checkin and checkout date?
     }
 
+//    //return  price based on season
+//    public int priceDependingOnSeason(Booking b){
+//
+//        int month = checkIndate.getMonthValue();
+//        if ((month == 1) || (month == 2)) {
+//            System.out.println("The season is Winter");
+//            b.getRoom().getRoomType().setPrice();
+//
+//        } else if ((month == 4) || (month == 5)) {
+//            System.out.println("The season is Spring");
+//            b.getRoom().getRoomType().setPrice();
+//
+//        } else if ((month == 7) || (month == 8)) {
+//            System.out.println("The season is Summer");
+//            b.getRoom().getRoomType().setPrice();
+//        } else if ((month == 10) || (month == 11)) {
+//            System.out.println("The season is Fall");
+//            b.getRoom().getRoomType().setPrice();
+//        }
+//        return month;
+//    }
+
+
     @Override
     public String toString() {
         return "Booking{" +

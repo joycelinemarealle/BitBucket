@@ -7,7 +7,8 @@ public class Lists {
     public static void main(String[] args) {
 //
         /*Call generateNumber method
-        * count = amount of random number eg 5 numbers
+        * count = amount of random number eg 5 numbers:q1
+        *
         * max = maximum range want to generate random number eg 1-10*/
         List <Integer> randomNumbersList = generateNumberList(5,10);
 

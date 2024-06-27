@@ -20,7 +20,7 @@ public class Fibonacci {
         }
 
         //Call static method fiblist and pass n_list
-        List<Integer> n_list = List.of(5, -3, 8, 10);
+        List<Integer> n_list = List.of(1,5,3,2,5,-3,-2,1,-4);
         List<Integer> fibList = fibList(n_list);
 
     }

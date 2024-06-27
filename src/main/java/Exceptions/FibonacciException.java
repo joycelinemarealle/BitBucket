@@ -1,8 +1,8 @@
 package Exceptions;
 public class FibonacciException extends RuntimeException{
 
-    public FibonacciException (String message, int Integer){
-        super(message); //call from RunTime Exception
+    public FibonacciException (int n){
+        super("Tried to Fibonacci with " + n); //call from RunTime Exception
 
     }
 }

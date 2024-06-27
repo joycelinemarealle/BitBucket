@@ -37,7 +37,9 @@ public class App {
 
             // add new order objects by adding user's order details
             Order order = new Order(symbolInput,priceInput,quantityInput,chosenSide);
-            orders.get(userNameInput).add(order);  //name linked to order
+            SortedSet<Order> userOrders = orders.get(userNameInput);
+            userOrders.add(order);
+           // orders.get(userNameInput).add(order);  //name linked to order
 
             /* Want to compare to other keys not to myself
             get all of the keys which are NOT the userNameInput
@@ -48,21 +50,23 @@ public class App {
                         // compare status &&
                         // compare price buy price has to be higher than selling price*/
 
-            /**/
-            for(String userName : orders.keySet()) {
+            /*for(String userName : orders.keySet()) {
                 if(!userName.equalsIgnoreCase(userNameInput)){
                     for(Order otherOrder : orders.get(userName)) {
                         if(order.getSymbol().equalsIgnoreCase(otherOrder.getSymbol()) &&
                            !order.getSide().equals(otherOrder.getSide())  &&
                                 //orders are not filled or cancelled . But it is not field since we initialized it
-                           orders.getPrice() > otherOrder.getPrice()
+                           //orders.getPrice() > otherOrder.getPrice()
 
                         ){
-                            //create new trade
+
                         }
+                            //create new trade
+
                     }
                 }
-            }
+            }*/
+
 
         }
     }

@@ -16,7 +16,6 @@ public class App {
             /*if username not in orders then create a new drawer to store this person
             * you need a drawer to store a user before adding to hashmap */
             orders.putIfAbsent(userNameInput, new TreeSet<>());
-
             /*Capture order details from user.
             Status and datetime does not come from user*/
             System.out.println("Enter the order  symbol");

@@ -1,8 +1,6 @@
 package CollectionPractice;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class Practice {
     public static void main(String[] args) {
@@ -39,6 +37,40 @@ public class Practice {
         //Check if name exists. Use same static methods since takes in List which includes Linked +Array
         System.out.println(searchByName(listOfPeople, "Elton"));
 
+
+        //Set implementations
+        Set <Person> people = new HashSet<Person>();
+        people.add(new Person("George", 13));
+        people.add(new Person ("Lola", 10));
+
+        //See if present in Set
+        Person toFindInSet = new Person ( "Joy", 27);
+        System.out.println(searchIfPresentInSet(people,toFind));
+
+
+        //Maps
+
+        Map < Integer, Person> peopleMap = new HashMap<> ();
+        Person person1  = new Person ("Joy", 27);
+        Person person2 = new Person ( "Eva", 27);
+        peopleMap.put(1,person1 );
+        peopleMap.put(2, person2);
+
+
+        //Hash Map for Key and Sorted Values
+        Map <Integer, SortedSet <Person>>  peopleMap= new Hashtable<>();
+
+        //Create a key and new empty drawer for person object with key 1
+        peopleMap.putIfAbsent(1, new TreeSet<>());
+        peopleMap.putIfAbsent(2, new TreeSet<>());
+
+
+        //Add Person objects to SortedSet based on key
+        SortedSet <Person> people1 = peopleMap.get(1);
+        people1.add(person1);
+
+        SortedSet <Person> people2 = peopleMap.get(2);
+        people2.add(person2);
     }
 
 //search if person in it
@@ -60,5 +92,14 @@ public class Practice {
         }
         return false;
 
+    }
+
+    //method for sets to check if people in set
+    public static boolean searchIfPresentInSet ( Set <Person> people, Person toFind){
+       if ( people.contains(toFind)) {
+           return true;
+       } else{
+           return false;
+       }
     }
 }

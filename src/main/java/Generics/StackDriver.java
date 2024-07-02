@@ -15,6 +15,20 @@ public class StackDriver {
         System.out.println(stack + " Removed Top word : Hello");
         System.out.println(stack.top()); // Expected: "World"
         System.out.println(stack.size()); // Expected: 1
+
+
+        //emptyandgreatest
+        GenericStack <Integer> intStack = new GenericStack<Integer>();
+        intStack.push(5);
+        intStack.push(3);
+        intStack.push (7);
+        System.out.println(emptyAndaGetGreatest(intStack) + " is the greatest number"); //expected 7
+
+        //check is stack is empty
+        System.out.println(stack.size());  //expected 1
+
+
+
     }
 
     //empty stack and return greatest
@@ -43,7 +57,7 @@ public class StackDriver {
              T temp = numList.top();
 
              // compare temp with greatest
-            if ( greatest.compareTo(temp) < 0){
+            if ( greatest.compareTo(temp) < 0){ //if greatest is smaller so set temp as greatest
                 greatest = temp;
             }
         }

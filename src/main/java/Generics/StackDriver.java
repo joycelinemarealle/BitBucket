@@ -50,7 +50,7 @@ public class StackDriver {
         T greatest = numList.top();
 
         // while size of stack > 0
-        while( numList.size()-1 >0){
+        while( numList.size() > 0){
            numList.pop();
 
         // get top into temp

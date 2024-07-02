@@ -58,18 +58,18 @@ public class Practice {
 
 
         //Hash Map for Key and Sorted Values
-        Map <Integer, SortedSet <Person>>  peopleMap= new Hashtable<>();
+        Map <Integer, SortedSet <Person>>  peopleMap2= new Hashtable<>();
 
         //Create a key and new empty drawer for person object with key 1
-        peopleMap.putIfAbsent(1, new TreeSet<>());
-        peopleMap.putIfAbsent(2, new TreeSet<>());
+        peopleMap2.putIfAbsent(1, new TreeSet<>());
+        peopleMap2.putIfAbsent(2, new TreeSet<>());
 
 
         //Add Person objects to SortedSet based on key
-        SortedSet <Person> people1 = peopleMap.get(1);
+        SortedSet <Person> people1 = peopleMap2.get(1);
         people1.add(person1);
 
-        SortedSet <Person> people2 = peopleMap.get(2);
+        SortedSet <Person> people2 = peopleMap2.get(2);
         people2.add(person2);
     }
 

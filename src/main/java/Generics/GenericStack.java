@@ -1,11 +1,12 @@
 package Generics;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Stack;
 
 public class GenericStack<T> {
-    List<T> list = new ArrayList<>();
+   List<T> list = new ArrayList<>();
 
     // put onto stack
     void push(T item) {
@@ -38,8 +39,9 @@ public class GenericStack<T> {
                 '}';
     }
 }
+//return so need T, pass Stack need label
 
-//public class <T> emptyAndaGetGreatest (){}
+
 /* top is the last that went in so will be at the top of stack
      per array will be last in array. Size is n-1 since index start at 0
      */

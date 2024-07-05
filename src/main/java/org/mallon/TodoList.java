@@ -19,6 +19,7 @@ public class TodoList {
         return this.getTodos(false);
     }
 
+
     public Iterable<TodoItem> getTodos(boolean complete) {
         return this.todos.stream().filter(i -> complete == i.isComplete()).collect(Collectors.toList());
     }
@@ -33,7 +34,12 @@ public class TodoList {
     }
 
     public boolean addTodo(TodoItem i) {
-        this.todos.add(i);
-        return true;
+        if ( i == null){
+            throw new NullPointerException("A null was entered");
+
+        } else {
+            this.todos.add(i);
+            return true;
+        }
     }
 }

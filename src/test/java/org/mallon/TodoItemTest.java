@@ -45,8 +45,7 @@ public class TodoItemTest {
         TodoItem i = new TodoItem("Test if complete false");
 
         //initially complete is false. So call setcomplete and set to true
-        boolean result = i.setComplete();
-        assertEquals(true, result);
+        assertEquals(true, i.setComplete());
 
         //assert isComplete should now be true
         assertEquals(true, i.isComplete());
@@ -57,7 +56,11 @@ public class TodoItemTest {
     public void ifCompleteIsTrue(){
         TodoItem i = new TodoItem("Test if complete is true");
 
-    //set complete false if  complete is now true
+        //set complete to True
+        i.setComplete();
+        assertEquals(true, i.isComplete());
+
+        //Call set complete method again and should return false since complete is now true
     assertEquals(false, i.setComplete());
 
     //complete should remain true

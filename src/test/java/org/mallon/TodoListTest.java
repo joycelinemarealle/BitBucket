@@ -10,7 +10,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class TodoListTest {
 
-
     //Typical test: test see if item was added
     @Test
     public void testAddToList(){
@@ -38,25 +37,30 @@ public class TodoListTest {
 
     //Boundary test: test see if item added to a empty list.
     @Test
-
     public void addingToEmptyListTest(){
         TodoList newList = new TodoList("Empty Todo List");
         TodoItem item = new TodoItem("Boundary Test");
-        boolean result= newList.addTodo(item);
-
 
         assertEquals(true, newList.addTodo(item));
-        //assert to see if size of array has become 1 since list initially empty
-        assertEquals(1, ((List<TodoItem>) newList.getTodos()).size());
+
+        /*assert to see if size of array has become 1 since list initially empty
+        cast iterable <TodoItem> to a List <TodoItem>
+        then call size of List <TodoITem> */
+        assertEquals(1, ((List<TodoItem>) newList.getAllTodos()).size());
 
     }
 
     //Erroneous test put in null
     @Test
-
-    public addingNulltoList(){
+    public void addingNulltoList(){
         TodoList newList = new TodoList(" Todo List");
+
         assertThrows(NullPointerException.class, () -> newList.addTodo(null));
+
+        //assert list size is zero
+        assertEquals(0, ((List<TodoItem>) newList.getAllTodos()).size());
+
+
     }
 
 }

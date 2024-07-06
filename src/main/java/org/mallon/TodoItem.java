@@ -23,7 +23,7 @@ public class TodoItem {
     String title;
     String description;
 
-    public TodoItem(String title) {
+    public TodoItem(String title){
         this(title, "");
     }
 

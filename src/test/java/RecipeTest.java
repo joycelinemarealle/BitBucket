@@ -61,5 +61,28 @@ public class RecipeTest {
 
 
 
+@Test
+
+public void calculatedQuantityOfIngredientTest(){
+
+    Recipe recipe = new Recipe( "Cake", 1);
+    Bakery manager = new Bakery();
+    Ingredient flour = new Ingredient("flour", 5.52, 1, "Kg", "Azam Supplier");
+    Ingredient sugar = new Ingredient("sugar", 3.25, 1, "Kg", "Food Bazaar Supplier");
+    Ingredient eggs = new Ingredient("eggs", 4.75, 12, "pcs", " Nature Eggs Supplier");
+    Ingredient butter = new Ingredient("butter", 3.36, 1, "Kg", " Blueband Supplier");
+
+
+    //add ingredients to recipe
+    recipe.addIngredient(flour,0.25);
+    recipe.addIngredient(sugar, 0.5);
+    recipe.addIngredient(eggs, 12.0);
+    recipe.addIngredient(butter, 1.0);
+
+    //calculate amount of ingredient for new product output
+    Recipe recipe2 = new Recipe( "Cake", 2);
+    recipe.calculateQuantityOfIngredient();
+}
+
 
 }

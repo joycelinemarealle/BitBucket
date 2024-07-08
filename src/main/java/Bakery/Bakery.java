@@ -36,6 +36,10 @@ public class Bakery {
         recipes.add(recipe);
     }
 
+    public void calculateQuantityOfIngredients(Recipe recipe){
+        recipe.getQuantityOutput()* recipes.()/
+    }
+
     @Override
     public String toString() {
         return "IngredientManager{" +

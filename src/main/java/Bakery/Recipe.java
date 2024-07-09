@@ -42,4 +42,44 @@ public class Recipe {
     public void addIngredient(Ingredient ingredient, Double quantity) {
         ingredients.put(ingredient, quantity);
     }
+
+    public double amountOfIngredient(Ingredient ingredient){
+     return  ingredients.get(ingredient);
+    }
+
+    public double calculateQuantityOfIngredients(Ingredient ingredient, int newProduct){
+        double originalQuantity = ingredients.get(ingredient);
+        int originalProduct = this.quantityOutput;
+       return newProduct * originalQuantity/ originalProduct;
+    }
+
+    public double calculateCostOfIngredient(Ingredient ingredient){
+      double quantityInRecipe =   ingredients.get(ingredient);
+      double priceOfIngredients = ingredient.getPrice();
+      int quantityOfIngredient = ingredient.getQuantity();
+        return  quantityInRecipe*priceOfIngredients/quantityOfIngredient;
+    }
+public double calculateUnitCost() {
+    double totalCost = 0.0;
+        for(Ingredient i : ingredients.keySet()){
+            totalCost+= calculateCostOfIngredient(i);
+        }
+       double costPerUnit = totalCost/this.getQuantityOutput();
+   return costPerUnit;
+}
+
+public  double calculatePrice(double profitMargin) {
+        double price =  this.calculateUnitCost()*  (1 + profitMargin);
+        return  price;
+}
+
+//    public double calculatePrice(Ingredient ingredient, int profitMargin){
+//
+//        double quantityInRecipe =   ingredients.get(ingredient);
+//        double priceofIngredients = ingredient.getPrice();
+//        int quantityOfIngredient = ingredient.getQuantity();
+//
+//        double costOfIngredient = quantityInRecipe*priceofIngredients/quantityOfIngredient;
+//    }
+
 }

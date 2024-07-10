@@ -32,15 +32,24 @@ public class Recipe {
     }
 
     public int getQuantityOutput() {
-        return quantityOutput;
+        if (this.quantityOutput <= 0) {
+            throw new IllegalArgumentException();
+        } else {
+            return quantityOutput;
+        }
+//        return quantityOutput;
     }
 
     public void setQuantityOutput(int quantityOutput) {
-        this.quantityOutput = quantityOutput;
+      this.quantityOutput = quantityOutput;
     }
 
     public void addIngredient(Ingredient ingredient, Double quantity) {
-        ingredients.put(ingredient, quantity);
+        if (ingredient == null) {
+            throw new IllegalArgumentException();
+        } else {
+            ingredients.put(ingredient, quantity);
+        }
     }
 
     public double amountOfIngredient(Ingredient ingredient){

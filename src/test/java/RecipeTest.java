@@ -5,8 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static java.lang.Math.round;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class RecipeTest {
     Recipe recipe;
@@ -137,6 +136,53 @@ public class RecipeTest {
         assertEquals(33.60, round(pricePerUnitProduct), 2);
 
     }
+
+    // recipe: BoundaryTest for recipe  min quantityOutput
+    @Test
+    public  void minimumOutputTest() {
+        //add ingredients to recipe
+        recipe.addIngredient(flour, 2.0);
+        recipe.addIngredient(sugar, 1.0);
+        recipe.addIngredient(eggs, 12.0);
+        recipe.addIngredient(butter, 1.0);
+
+
+        // setting the min quantityOutput
+        recipe.setQuantityOutput(1);
+        assertEquals(1,recipe.getQuantityOutput());
+
+    }
+
+    // recipe: ErroneousTest for  negative quantityOutput in our recipe
+    @Test()
+    public  void negativeQuantityOutput() {
+        //add ingredients to recipe
+        recipe.addIngredient(flour, 2.0);
+        recipe.addIngredient(sugar, 1.0);
+        recipe.addIngredient(eggs, 12.0);
+        recipe.addIngredient(butter, 1.0);
+
+        // setting the quantityOutput
+        recipe.setQuantityOutput(-1);
+        assertThrows(IllegalArgumentException.class, () -> recipe.getQuantityOutput());
+
+    }
+
+//    // recipe: ErroneousTest for null test in our recipe
+//    @Test()
+//    public  void nullRecipeTest() {
+//        //add ingredients to recipe
+//        recipe.addIngredient(flour, 2.0);
+//        recipe.addIngredient(sugar, 1.0);
+//        recipe.addIngredient(eggs, 12.0);
+//        recipe.addIngredient(butter, 1.0);
+//        recipe.addIngredient(null,0.0);
+//
+//        assertThrows(IllegalArgumentException.class, () -> recipe.addIngredient(null,0.0));
+//
+//    }
+//
+
 
 
 }

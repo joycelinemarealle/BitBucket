@@ -32,7 +32,11 @@ public class Ingredient {
     }
 
     public double getPrice() {
-        return price;
+        if (this.price <= 0) {
+            throw new IllegalArgumentException();
+        } else {
+            return price;
+        }
     }
 
     public void setPrice(double price) {
@@ -40,7 +44,11 @@ public class Ingredient {
     }
 
     public int getQuantity() {
-        return quantity;
+        if (this.quantity < 0) {
+            throw new IllegalArgumentException();
+        } else {
+            return quantity;
+        }
     }
 
     public void setQuantity(int quantity) {

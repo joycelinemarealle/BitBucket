@@ -90,4 +90,32 @@ public class BakeryTest {
         //assert
         assertEquals(48.03, round(totalCost), 2);
     }
+
+
+
+    // checking for null recipe
+    @Test()
+    public void nulLRecipeTest() {
+        //add ingredient to the two recipes
+        cakeRecipe.addIngredient(flour, 1.5);
+        cakeRecipe.addIngredient(sugar, 2.0);
+        cakeRecipe.addIngredient(butter, 1.0);
+        cakeRecipe.addIngredient(eggs, 13.0);
+
+
+        chocolateMuffinsRecipe.addIngredient(chocolate, 3.0);
+        chocolateMuffinsRecipe.addIngredient(flour, 1.5);
+        chocolateMuffinsRecipe.addIngredient(sugar, 2.5);
+
+
+        //add recipes into recipe List
+        bakery.addRecipe(cakeRecipe);
+        bakery.addRecipe(chocolateMuffinsRecipe);
+
+        //return hashmap with ingredient and quantity
+        Map<Ingredient, Double> totalIngredient=  bakery.overallIngredientAmount(cakeRecipe, chocolateMuffinsRecipe);
+
+
+
+    }
 }

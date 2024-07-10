@@ -168,19 +168,13 @@ public class RecipeTest {
 
     }
 
-//    // recipe: ErroneousTest for null test in our recipe
-//    @Test()
-//    public  void nullRecipeTest() {
-//        //add ingredients to recipe
-//        recipe.addIngredient(flour, 2.0);
-//        recipe.addIngredient(sugar, 1.0);
-//        recipe.addIngredient(eggs, 12.0);
-//        recipe.addIngredient(butter, 1.0);
-//        recipe.addIngredient(null,0.0);
-//
-//        assertThrows(IllegalArgumentException.class, () -> recipe.addIngredient(null,0.0));
-//
-//    }
+    // recipe: ErroneousTest for null test in our recipe
+    @Test()
+    public  void nullRecipeTest() {
+
+        assertThrows(IllegalArgumentException.class, () -> recipe.addIngredient(null,0.0));
+
+    }
 //
 
 

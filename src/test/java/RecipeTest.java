@@ -54,8 +54,8 @@ public class RecipeTest {
         assertTrue(recipe.getIngredients().containsKey(sugar));
         assertTrue(recipe.getIngredients().containsKey(eggs));
         assertTrue(recipe.getIngredients().containsKey(butter));
-        assertEquals(0.25,recipe.getIngredients().get(flour));
-        assertEquals(0.5,recipe.getIngredients().get(sugar));
+        assertEquals(2.0,recipe.getIngredients().get(flour));
+        assertEquals(1.0,recipe.getIngredients().get(sugar));
         assertEquals(12.0,recipe.getIngredients().get(eggs));
         assertEquals(1.0,recipe.getIngredients().get(butter));
 

@@ -1,3 +1,5 @@
+package Student;
+
 public class Student {
     String firstName;
     String lastName;
@@ -5,6 +7,11 @@ public class Student {
     Boolean feesPaid;
     double marks;
 
+
+    //to read JSON file need a no - argument constructor
+    public Student (){
+
+    }
     public Student(String firstName, String lastName, int age, Boolean feesPaid, double marks) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -51,5 +58,16 @@ public class Student {
 
     public void setMarks(double marks) {
         this.marks = marks;
+    }
+
+    @Override
+    public String toString() {
+        return "Student.Student{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                ", feesPaid=" + feesPaid +
+                ", marks=" + marks +
+                '}';
     }
 }

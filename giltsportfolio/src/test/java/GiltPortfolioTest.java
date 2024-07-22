@@ -19,6 +19,7 @@ public class GiltPortfolioTest {
     @Mock
     static Gilt sharedGilt;
     static GiltPortfolio sharedPortfolio;
+
     @BeforeEach
     void setup() {
         pricingEngine = mock(GiltPricingEngine.class);
@@ -38,7 +39,7 @@ public class GiltPortfolioTest {
         GiltPortfolio p = new GiltPortfolio(pricingEngine, new ArrayList<>(Arrays.asList(sharedGilt)), 0);
         p.tick();
         verify(sharedGilt).tick();
-        assertEquals(0.125,p.getBalance());
+        assertEquals(0.125, p.getBalance());
         assertEquals(1, p.getPortfolio().size());
     }
 
@@ -49,7 +50,7 @@ public class GiltPortfolioTest {
         GiltPortfolio p = new GiltPortfolio(pricingEngine, new ArrayList<>(Arrays.asList(sharedGilt)), 0);
         p.tick();
         verify(sharedGilt).tick();
-        assertEquals(103.25,p.getBalance(), 0.01);
+        assertEquals(103.25, p.getBalance(), 0.01);
         assertEquals(0, p.getPortfolio().size());
     }
 
@@ -64,7 +65,7 @@ public class GiltPortfolioTest {
         p.tick();
         verify(sharedGilt).tick();
         verify(gilt2).tick();
-        assertEquals(0.875,p.getBalance(), 0.01);
+        assertEquals(0.875, p.getBalance(), 0.01);
         assertEquals(2, p.getPortfolio().size());
     }
 
@@ -79,7 +80,7 @@ public class GiltPortfolioTest {
         p.tick();
         verify(sharedGilt).tick();
         verify(gilt2).tick();
-        assertEquals(100.875,p.getBalance(), 0.01);
+        assertEquals(100.875, p.getBalance(), 0.01);
         assertEquals(1, p.getPortfolio().size());
     }
 
@@ -126,7 +127,7 @@ public class GiltPortfolioTest {
         when(pricingEngine.getPrice(gilt2)).thenReturn(100.0);
         GiltPortfolio p = new GiltPortfolio(pricingEngine, new ArrayList<>(Arrays.asList(sharedGilt, gilt2)), 100.0);
         p.sellGilt(sharedGilt);
-        assertEquals(250.00,p.getBalance(), 0.01);
+        assertEquals(250.00, p.getBalance(), 0.01);
         assertEquals(1, p.getPortfolio().size());
     }
 }

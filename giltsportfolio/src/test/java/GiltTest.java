@@ -1,5 +1,7 @@
 import gilts.AlreadyExpiredGiltException;
 import gilts.Gilt;
+import gilts.InvalidGiltInputException;
+import gilts.InvalidGiltInputException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -38,13 +40,14 @@ public class GiltTest {
 
     @Test
     void expiredGiltTest(){
-        Gilt g = new Gilt(1.25, 100.00, 0);
+       Gilt g = new Gilt(1.25, 100.00, 0);
         assertTrue(g.expired());
+
     }
 
     @Test
     void nonExpiringGiltTickTest(){
-        Gilt g = new Gilt(1.25, 100.00, 4);
+        Gilt g = new Gilt(1.25,  4);
         g.tick();
         assertEquals(1.25, g.getCoupon(), 0.01);
         assertEquals(3, g.getYearsRemaining());
@@ -52,14 +55,14 @@ public class GiltTest {
 
     @Test
     void oneYearRemainingGiltTickTest(){
-        Gilt g = new Gilt(1.25, 100.00, 2);
+        Gilt g = new Gilt(1.25, 2);
         g.tick();
         assertEquals(101.25, g.tick(), 0.01);
     }
 
     @Test
     void zeroYearsRemainingGiltTickTest(){
-        Gilt g = new Gilt(1.25, 100.00, 0);
+        Gilt g = new Gilt(1.25, 0);
 
         assertThrows(AlreadyExpiredGiltException.class ,() -> g.tick());
     }
@@ -75,20 +78,24 @@ public class GiltTest {
     //only new object created if meets conditions
     @Test
     void giltWithNegativeYearsRemaining(){
-        assertThrows(IllegalArgumentException.class, () -> Gilt.create(1.25, 100.00, -5) );
+        assertThrows(InvalidGiltInputException.class, () -> Gilt.create(1.25, 100.00, -5) );
     }
 
     @Test
     void giltWithNegativeCoupon(){
-        assertThrows(IllegalArgumentException.class, () -> Gilt.create(-1.25, 100.00, 5) );
+        assertThrows(InvalidGiltInputException.class, () -> Gilt.create(-1.25, 100.00, 5) );
     }
 
     @Test
     void giltWithNegativePrincipal(){
-        assertThrows(IllegalArgumentException.class, () -> Gilt.create(1.25, -100.00, 5) );
+        assertThrows(InvalidGiltInputException.class, () -> Gilt.create(1.25, -100.00, 5));
     }
 
     //Erroneous
-    //what if added string or different type that is acceptable to create Gilt
+    //what if added string or different type that is not  acceptable to create Gilt
 
+//    @Test
+//    void giltWithStringCoupon(){
+//assertThrows(InvalidGiltInputException.class, () -> Gilt.create(one dollar, -100.00, five));
+//    }
 }

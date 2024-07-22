@@ -2,9 +2,38 @@ package gilts;
 
 public class Gilt {
     private double coupon; // Interest (absolute: i.e. how much are they being paid?)
+    private double principal; // Face value
+    private int yearsRemaining; // Years remaining on the bond
 
+
+    //constructor
+    //create new object only if valid input
+    public static Gilt create(double coupon, double principal, int yearsRemaining) {
+        if (coupon > 0 && principal > 0 && yearsRemaining > 0) {
+            return new Gilt(coupon, principal, yearsRemaining);
+        }
+//        else if (yearsRemaining == 0){
+//            throw new AlreadyExpiredGiltException();
+//        }
+        else {
+            throw new InvalidGiltInputException();
+        }
+//if coupon or principal or yearsRemainng not doubles or int then throw message
+    }
+
+    public Gilt(double coupon, double principal, int yearsRemaining) {
+        this.coupon = coupon;
+        this.principal = principal;
+        this.yearsRemaining = yearsRemaining;
+    }
+
+    public Gilt(double coupon, int yearsRemaining) {
+        this(coupon, 100, yearsRemaining);
+    }
+
+    //getters
     public double getCouponPercent() {
-        return coupon/principal;
+        return coupon / principal;
     }
 
     public double getCoupon() {
@@ -19,26 +48,10 @@ public class Gilt {
         return yearsRemaining;
     }
 
-    private double principal; // Face value
-    private int yearsRemaining; // Years remaining on the bond
 
-    //create new object only if valid input
-    public static Gilt create(double coupon, double principal, int yearsRemaining){
-        if (coupon < 0 || principal < 0 || yearsRemaining < 0){
-            throw new IllegalArgumentException("Input values have to be positive");
-        }
-
-        return new Gilt ( coupon, principal, yearsRemaining);
-    }
-
-    public Gilt(double coupon, double principal, int yearsRemaining) {
-        this.coupon = coupon;
-        this.principal = principal;
-        this.yearsRemaining = yearsRemaining;
-    }
-
-    public Gilt(double coupon, int yearsRemaining) {
-        this(coupon, 100, yearsRemaining);
+//methods
+    public boolean expired() {
+        return this.yearsRemaining <= 0;
     }
 
     public double tick() {
@@ -49,12 +62,9 @@ public class Gilt {
         if (this.yearsRemaining >= 1) {
             return this.coupon;
         } else {
-            return this.coupon+this.principal;
+            return this.coupon + this.principal;
         }
     }
 
-    public boolean expired() {
-        return this.yearsRemaining <= 0;
-    }
 
 }

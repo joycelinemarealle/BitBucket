@@ -1,6 +1,6 @@
 package Animal;
 
-public class Animal {
+public class Animal { //testing
     private String type;
     private String name;
     private int age;

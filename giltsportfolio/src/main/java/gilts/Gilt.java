@@ -22,6 +22,15 @@ public class Gilt {
     private double principal; // Face value
     private int yearsRemaining; // Years remaining on the bond
 
+    //create new object only if valid input
+    public static Gilt create(double coupon, double principal, int yearsRemaining){
+        if (coupon < 0 || principal < 0 || yearsRemaining < 0){
+            throw new IllegalArgumentException("Input values have to be positive");
+        }
+
+        return new Gilt ( coupon, principal, yearsRemaining);
+    }
+
     public Gilt(double coupon, double principal, int yearsRemaining) {
         this.coupon = coupon;
         this.principal = principal;

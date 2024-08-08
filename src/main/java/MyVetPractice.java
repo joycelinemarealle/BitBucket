@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 
@@ -63,11 +64,22 @@ public class MyVetPractice implements VetPractice {
         }
     }
 
-   // @Override
-    //public List<Pet> scheduleAppointments() {
-        //sort by pet name, return list , then clear booking quue
-        //sortedlist = Collections.sort(bookingQueue);
-       //sortedlist = Collections.sort(bookingQueue.get(1).getName());
+    @Override
+    public List<Pet> scheduleAppointments() {
+        //sort by pet name
+        List <Pet> sortedQueue = new ArrayList<>(bookingQueue);
+        Collections.sort(sortedQueue, new Comparator<Pet>() {
+
+            @Override
+            public int compare(Pet p1, Pet p2) {
+                return p1.getName().compareTo(p2.getName());
+            }
+        });
+
+        //Clear BookingQueue to show all appointment have been handled
+        bookingQueue.clear();
+
         //return sortedList;
-    //}
+        return sortedQueue;
+    }
 }

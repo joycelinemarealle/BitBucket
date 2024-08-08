@@ -69,12 +69,15 @@ public class MyVetPractice implements VetPractice {
         //sort by pet name
         List <Pet> sortedQueue = new ArrayList<>(bookingQueue);
         Collections.sort(sortedQueue, new Comparator<Pet>() {
-
             @Override
             public int compare(Pet p1, Pet p2) {
                 return p1.getName().compareTo(p2.getName());
             }
         });
+
+        //pets.sort(Comparator.comparing(Pet::getName))
+        //pets.sort(Comparator.comparing(o) -> o.getOwner.getNumber())
+        //Collections.sort(bookingQueue, (p1,p2) -> p1.getName().compareTo(p2.getName()));
 
         //Clear BookingQueue to show all appointment have been handled
         bookingQueue.clear();

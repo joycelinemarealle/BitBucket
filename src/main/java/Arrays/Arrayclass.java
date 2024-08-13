@@ -51,7 +51,7 @@ public class Arrayclass {
         System.out.println(mySum);
 
         System.out.println(myintArray[0] + myintArray[3]);
-         myintArray[0] = 2;
+        myintArray[0] = 2;
         System.out.println(myintArray);
     }
 }

@@ -9,7 +9,7 @@ public class MyVetPractice implements VetPractice {
     private List<Owner> owners = new ArrayList<>();
     private List<Pet> pets = new ArrayList<>();
     private List<Pet> bookingQueue = new ArrayList<>();
-    private VetScheduler scheduler;
+    private VetScheduler scheduler; //manual injection
 
 
     public MyVetPractice(List<Owner> owners, List<Pet> pets, List<Pet> bookingQueue, VetScheduler scheduler) {

@@ -20,8 +20,9 @@ public class AccountController {
     List<Account> getAllAccounts(){
         return accountService.retrieveAllAccounts();
     }
-    @PostMapping
 
+
+    @PostMapping
     public void statusResponse(Account account){
         accountService.retrieveAllAccounts().add(account);
 

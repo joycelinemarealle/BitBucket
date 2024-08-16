@@ -11,6 +11,10 @@ public class Account {
 
     }
 
+    //add empty constructor since Jetbrains need it to create new object
+    public Account() {
+    }
+
     public Account(int id, String name, double balance) {
         this.id = id;
         this.name = name;

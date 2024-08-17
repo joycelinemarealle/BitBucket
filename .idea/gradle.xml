@@ -4,14 +4,6 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <option name="externalProjectPath" value="$PROJECT_DIR$/../joycelinemarealle" />
-        <option name="modules">
-          <set>
-            <option value="$PROJECT_DIR$/../joycelinemarealle" />
-          </set>
-        </option>
-      </GradleProjectSettings>
-      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="gradleHome" value="" />
         <option name="modules">
@@ -23,6 +15,14 @@
             <option value="$PROJECT_DIR$/src/TDDLabsTest" />
             <option value="$PROJECT_DIR$/src/main" />
             <option value="$PROJECT_DIR$/src/main/TDDLabs" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/../joycelinemarealle" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/../joycelinemarealle" />
           </set>
         </option>
       </GradleProjectSettings>

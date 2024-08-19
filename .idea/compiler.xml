@@ -13,6 +13,7 @@
       <module name="Joyceline.giltsportfolio" target="17" />
       <module name="Joyceline.giltsportfolio.main" target="17" />
       <module name="Joyceline.giltsportfolio.test" target="17" />
+      <module name="Joyceline.JSONModule" target="17" />
       <module name="Joyceline.JSONModule.main" target="17" />
       <module name="Joyceline.JSONModule.test" target="17" />
       <module name="Joyceline.main" target="17" />

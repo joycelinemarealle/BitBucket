@@ -26,18 +26,7 @@
             <expand>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Joyceline" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Joyceline" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Joyceline" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
+                <item name="repo" type="f1a62948:ProjectNode" />
               </path>
             </expand>
             <select />
@@ -81,10 +70,11 @@
     "Gradle.repo.executor": "Run",
     "JUnit.TodoListIntegrationTest.executor": "Run",
     "JUnit.TodoListTest.executor": "Run",
+    "Kotlin script (Beta).build.gradle.kts.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/JoycelineMarealle/IdeaProjects/my-spring-project/my-spring-project/build.gradle"
+    "last_opened_file_path": "C:/Users/JoycelineMarealle/IdeaProjects/repo/build.gradle.kts"
   }
 }]]></component>
   <component name="RecentsManager">

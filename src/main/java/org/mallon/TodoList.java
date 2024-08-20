@@ -42,4 +42,8 @@ public class TodoList {
             return true;
         }
     }
+
+    public void completeAll(){
+
+    }
 }

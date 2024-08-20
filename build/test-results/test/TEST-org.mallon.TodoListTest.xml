@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.mallon.TodoListTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-08-19T20:49:19" hostname="BK-D-025" time="0.004">
+<testsuite name="org.mallon.TodoListTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-08-20T19:30:12" hostname="BK-D-025" time="1.227">
   <properties/>
-  <testcase name="addingNulltoList()" classname="org.mallon.TodoListTest" time="0.002"/>
-  <testcase name="testAddToList()" classname="org.mallon.TodoListTest" time="0.001"/>
+  <testcase name="addTodoTest()" classname="org.mallon.TodoListTest" time="1.227"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

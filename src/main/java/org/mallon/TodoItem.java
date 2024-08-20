@@ -6,7 +6,7 @@ public class TodoItem {
     String title;
     String description;
 
-    public TodoItem(String title){
+    public TodoItem(String title) {
         this(title, "");
     }
 
@@ -21,8 +21,7 @@ public class TodoItem {
         return complete;
     }
 
-    public String getTitle()
-    {
+    public String getTitle() {
         return title;
     }
 
@@ -30,6 +29,7 @@ public class TodoItem {
 
         return description;
     }
+
     public void setDescription(String description) {
         if (!description.equals(title)) {
             this.description = description;
@@ -37,6 +37,7 @@ public class TodoItem {
     }
 
     public boolean setComplete(boolean b) {
+        //return true;
         if (!this.complete) {
             this.complete = true;
             return true;
@@ -45,3 +46,5 @@ public class TodoItem {
         }
     }
 }
+/*
+        }*/

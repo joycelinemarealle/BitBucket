@@ -43,7 +43,19 @@ public class TodoList {
         }
     }
 
-    public void completeAll(){
+    public int completeAll(){
+        //check if item is completed if not set to true then count
+        //set complete to false and use complete all to see if it changed to true
+       int count = 0;
+        for (TodoItem item : todos){
+            if (!item.isComplete())
+                item.setComplete(true);
+            count++;
+            }
+
+        return count;
+        }
+
 
     }
-}
+

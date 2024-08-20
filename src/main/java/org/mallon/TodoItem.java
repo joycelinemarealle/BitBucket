@@ -2,23 +2,6 @@ package org.mallon;
 
 public class TodoItem {
 
-    public boolean isComplete() {
-
-        return complete;
-    }
-
-    public String getTitle()
-    {
-        return title;
-    }
-
-    public String getDescription() {
-
-        return description;
-    }
-
-
-
     boolean complete;
     String title;
     String description;
@@ -33,17 +16,32 @@ public class TodoItem {
         this.complete = false;
     }
 
+    public boolean isComplete() {
+
+        return complete;
+    }
+
+    public String getTitle()
+    {
+        return title;
+    }
+
+    public String getDescription() {
+
+        return description;
+    }
     public void setDescription(String description) {
         if (!description.equals(title)) {
             this.description = description;
         }
     }
 
-    public boolean setComplete() {
+    public boolean setComplete(boolean b) {
         if (!this.complete) {
             this.complete = true;
-            return true; }
-        else {
-            return false; }
+            return true;
+        } else {
+            return false;
+        }
     }
 }

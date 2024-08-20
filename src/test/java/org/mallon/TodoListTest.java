@@ -82,6 +82,18 @@ public class TodoListTest {
 
     @Test
     public void completeAllTest(){
+        newList.addTodo(item1);
+        newList.addTodo(item2);
+
+        //set mocks
+        when(item1.isComplete()).thenReturn(false);
+        when(item2.isComplete()).thenReturn(false);
+
+        //test
+        assertEquals(2,newList.completeAll());
+        verify(item1).isComplete();
+        verify(item2).isComplete();
+
 
     }
 }

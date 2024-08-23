@@ -23,7 +23,12 @@ public class LocalAccountRepository implements AccountRepository{
 
     @Override
     public Account findAccountById(int id) {
-        return accounts.get(id);
+        for (Account account :accounts){
+            if (account.getId() == id){
+                return account;
+            }
+        }
+        return null;
     }
 
     @Override

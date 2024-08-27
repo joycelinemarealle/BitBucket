@@ -10,7 +10,19 @@ Wednesday
 
 
 Tuesday 08/27/24
--
+- DTO (response + request)  records for Get Account
+- DTO (response + request) records for Post Account
+- DTO (response + request) records for Delete Account
+- POST and GEt account
+- UpdateService layer methods with DTO type instead
+- Create custom exceptions to be implemented service layer
+- Change method findAccountByNumber + retrieveAllAccounts +createAccount in service layer
+   -Create method in a different class for TransactionMapper
+  -  Create method for Account Mapper
+
+
+
+
 Monday 08/26/24
 - Account Controller methods(get , post mapping methods, delete mapping)
 - Account service methods(retrieve all accounts, createAccount, Deleteaccount)

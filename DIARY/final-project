@@ -1,3 +1,23 @@
+
+
+
+
+Week 2
+
+Fri
+Thursday
+Wednesday
+
+
+Tuesday 08/27/24
+-
+Monday 08/26/24
+- Account Controller methods(get , post mapping methods, delete mapping)
+- Account service methods(retrieve all accounts, createAccount, Deleteaccount)
+- Account create account and delete account in service layer
+- Update Account entity with IsClosed boolean, opening balance
+
+Week 1
 Friday 08/23
 1.UML diagram for databases  + entities for persistence layer
 2. Account end point (Jira FPBA-2)

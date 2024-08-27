@@ -12,11 +12,11 @@ import com.peopleshpres.my_spring_project.services.ExampleService;
 public class MySpringApplication {
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(MySpringApplication.class, args);
-        ExampleService exampleService = context.getBean(ExampleService.class);
-        exampleService.doSomething();
-        AccountService accountService = context.getBean(AccountService.class);
-        accountService.retrieveAllAccounts();
-        PortfolioService portfolioService = context.getBean(PortfolioService.class);
-        portfolioService.getAllPortfolio();
+//        ExampleService exampleService = context.getBean(ExampleService.class);
+//        exampleService.doSomething();
+//        AccountService accountService = context.getBean(AccountService.class);
+//        accountService.retrieveAllAccounts();
+//        PortfolioService portfolioService = context.getBean(PortfolioService.class);
+//        portfolioService.getAllPortfolio();
     }
 }

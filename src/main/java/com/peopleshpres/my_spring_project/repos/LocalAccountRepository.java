@@ -1,6 +1,7 @@
 package com.peopleshpres.my_spring_project.repos;
 
 import com.peopleshpres.my_spring_project.entities.Account;
+import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -9,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
+@Profile("qa")
 public class LocalAccountRepository implements AccountRepository{
     private List<Account> accounts;
     private Account account;

@@ -5,11 +5,14 @@ import com.peopleshpres.my_spring_project.repos.JpaPortfolioRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 
 import java.util.List;
 
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
+
+@DataJpaTest
 
 public class PortfolioTest {
 
@@ -27,7 +30,7 @@ public class PortfolioTest {
 
     @Test
     void findAllPortfoliosByName_returnsCorrectly(){
-        List<Portfolio> pList = repo.findAllPortfoliosByName("Joyceline");
+        List<Portfolio> pList = repo.findAllPortfolioByName("Joyceline");
         assertThat(pList).allMatch(p-> "Joyceline".equals(p.getName()));
     }
 }

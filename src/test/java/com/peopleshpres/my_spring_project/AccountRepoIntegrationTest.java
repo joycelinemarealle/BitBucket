@@ -4,6 +4,7 @@ import com.peopleshpres.my_spring_project.entities.Account;
 import com.peopleshpres.my_spring_project.repos.JDBCAccountRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.JdbcTest;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.jdbc.Sql;
@@ -17,7 +18,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @JdbcTest
  class AccountRepoIntegrationTest {
  JDBCAccountRepository repo;
+
+ @Autowired
  JdbcTemplate template;
+
  List<Account> accounts;
  Account account1;
 
@@ -30,6 +34,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
  @Test
  void getAllAccounts_returnsThreeAccounts(){
+  accounts.add(account1);
  accounts = repo.getAllAccounts();
 assertThat(accounts).hasSize(3);
 

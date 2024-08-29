@@ -4,13 +4,42 @@
 
 Week 2
 
-Fri
-Thursday
-Wednesday
+Fri 08/30/2024
 
+
+Thursday 08/29/2024
+- AccountService
+    Junit test
+- Fix Account Controller Test
+    replace string expected balance with jsonpath
+
+Wednesday 08/28/2024
+- Account controller methods
+    Add ResponseEntity<>
+    Add http
+    Fix post mapping
+    See if can send request
+- JPA units test
+    Account controller tests
+    Account service
 
 Tuesday 08/27/24
--
+- DTO (response + request)  records for Get Account
+- DTO (response + request) records for Post Account
+- DTO (response + request) records for Delete Account
+- POST and GEt account
+- UpdateService layer methods with DTO type instead
+- Create custom exceptions to be implemented service layer
+    Change method findAccountByNumber + retrieveAllAccounts +createAccount in service layer
+    Create method in a different class for TransactionMapper
+    Create method for Account Mapper
+
+-Account controller method
+    Add http
+    Fix post mapping
+    See if can send request
+
+
 Monday 08/26/24
 - Account Controller methods(get , post mapping methods, delete mapping)
 - Account service methods(retrieve all accounts, createAccount, Deleteaccount)

@@ -5,6 +5,12 @@
 Week 2
 
 Fri 08/30/2024
+- Account Controller test
+    Fix to use .andExpect and json path
+    Debug my tests to work
+-ata validation for Account opening balance
+-Test with swagger post, get
+-Test front end
 
 
 Thursday 08/29/2024
